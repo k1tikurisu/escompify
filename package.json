@@ -1,0 +1,30 @@
+{
+  "name": "research",
+  "packageManager": "yarn@3.5.0",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "progress": "^2.0.3",
+    "semver": "^7.5.0",
+    "winston": "^3.8.2",
+    "yargs": "^17.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.1",
+    "@types/yargs": "^17.0.24",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "prettier": "^2.8.8",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.0.4"
+  }
+}
