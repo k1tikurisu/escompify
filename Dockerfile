@@ -12,3 +12,5 @@ COPY ./.yarn /works/.yarn
 RUN yarn install
 
 COPY . /works/
+
+RUN chmod +x /works/scripts/
