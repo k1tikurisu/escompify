@@ -8,6 +8,7 @@ services:
     image: daaiki/research:base
     container_name: base
     working_dir: /works
+    tty: true
     volumes:
       - type: bind
         source: .
