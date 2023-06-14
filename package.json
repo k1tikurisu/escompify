@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.22.1",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.1.4",
     "progress": "^2.0.3",
     "semver": "^7.5.0",
     "ssh2": "^1.13.0",
