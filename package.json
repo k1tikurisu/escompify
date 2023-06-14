@@ -13,12 +13,14 @@
     "dotenv": "^16.0.3",
     "progress": "^2.0.3",
     "semver": "^7.5.0",
+    "ssh2": "^1.13.0",
     "winston": "^3.8.2",
     "yargs": "^17.7.1"
   },
   "devDependencies": {
     "@types/babel__core": "^7.20.1",
     "@types/node": "^18.16.1",
+    "@types/ssh2": "^1.11.11",
     "@types/yargs": "^17.0.24",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
