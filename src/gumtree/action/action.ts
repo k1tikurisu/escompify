@@ -14,7 +14,7 @@ type ActionDetailsType = {
 };
 
 export async function getAction(id: number) {
-  const res = await api.get(`/action/${id}`).json<ActionType>();
+  const res = await api.get<ActionType[]>(`/action/${id}`);
 
-  return { data: res };
+  return { data: res.data };
 }

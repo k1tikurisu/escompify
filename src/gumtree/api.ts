@@ -1,7 +1,12 @@
-import ky from 'ky';
+import axios from 'axios';
 
 // entrypoint
-export const api = ky.create({ prefixUrl: 'http://localhost:8000' });
+export const api = axios.create({
+  baseURL: 'http://localhost:8000',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+});
 
 // endpoints
 export { postDiff } from '@/gumtree/post/post';

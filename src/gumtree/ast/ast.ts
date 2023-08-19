@@ -7,7 +7,7 @@ type GetAstRequestType = {
 };
 
 export async function getAst({ id, type }: GetAstRequestType) {
-  const res = await api.get(`/ast/${type}/${id}`).json<Program>();
+  const res = await api.get<Program>(`/ast/${type}/${id}`);
 
-  return { data: res };
+  return { data: res.data };
 }
