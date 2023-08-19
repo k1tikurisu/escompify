@@ -1,7 +1,9 @@
 {
-  "name": "research",
+  "name": "escompify",
   "packageManager": "yarn@3.5.0",
   "version": "0.1.0",
+  "description": "",
+  "bin": "bin/escompify",
   "private": true,
   "license": "MIT",
   "scripts": {
