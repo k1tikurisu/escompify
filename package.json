@@ -9,15 +9,15 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --build --watch",
-    "run": "ts-node -r tsconfig-paths/register ./src/main.ts",
+    "escompify": "ts-node -r tsconfig-paths/register ./src/main.ts",
     "clean": "tsc --build --clean",
     "lint": "eslint --ext .js,.ts",
     "format": "prettier --write ."
   },
   "dependencies": {
     "acorn": "^8.10.0",
+    "axios": "^1.4.0",
     "dotenv": "^16.1.4",
-    "ky": "^0.33.3",
     "progress": "^2.0.3",
     "semver": "^7.5.0",
     "winston": "^3.8.2",
