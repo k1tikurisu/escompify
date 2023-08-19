@@ -7,6 +7,10 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+    "build": "tsc",
+    "dev": "tsc --build --watch",
+    "run": "ts-node -r tsconfig-paths/register ./src/main.ts",
+    "clean": "tsc --build --clean",
     "lint": "eslint --ext .js,.ts",
     "format": "prettier --write ."
   },
