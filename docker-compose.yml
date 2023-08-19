@@ -19,6 +19,10 @@ services:
       - type: volume
         source: node_modules
         target: /works/node_modules
+      - type: volume
+        source: build
+        target: /works/lib
 
 volumes:
   node_modules:
+  build:
