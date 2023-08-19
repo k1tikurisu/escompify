@@ -1,5 +1,5 @@
 import { YargsArgs } from '@/cli';
-import { getAction } from './gumtree/api';
+import { getAction } from '@/services/gumtree/';
 
 export async function handler(argv: YargsArgs) {
   console.log(argv.s, argv.d);

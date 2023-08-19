@@ -1,4 +1,4 @@
-import { api } from '@/gumtree/api';
+import { api } from '@/services/gumtree';
 import { Node } from 'estree';
 
 type ActionType = {

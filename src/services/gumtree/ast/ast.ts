@@ -1,4 +1,4 @@
-import { api } from '@/gumtree/api';
+import { api } from '@/services/gumtree';
 import { Program } from 'estree';
 
 type GetAstRequestType = {
