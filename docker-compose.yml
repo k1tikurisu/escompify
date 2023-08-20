@@ -16,6 +16,9 @@ services:
       - type: bind
         source: /var/run/docker.sock
         target: /var/run/docker.sock
+      - type: bind
+        source: ~/.ssh
+        target: /root/.ssh
       - type: volume
         source: node_modules
         target: /works/node_modules
