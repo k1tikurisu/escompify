@@ -1,7 +1,7 @@
 FROM node:18.15.0-slim
 
 RUN apt update && \
-  apt install -y curl jq unzip gcc git
+  apt install -y curl jq unzip gcc git sshpass
 RUN curl -fsSL https://test.docker.com/ | sh
 
 WORKDIR /works

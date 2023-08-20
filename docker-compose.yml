@@ -7,6 +7,7 @@ services:
       dockerfile: Dockerfile
     image: daaiki/research:base
     container_name: base
+    command: bash -c "./scripts/ssh_to_brain.sh"
     working_dir: /works
     tty: true
     volumes:

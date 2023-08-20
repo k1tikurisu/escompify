@@ -14,9 +14,5 @@ up:
 down:
 	@docker compose down
 
-ssh.brain:
-	@docker compose exec base ssh socsel-o
-
 exec:
-	@docker compose exec base $(cmd)
-	
+	@docker compose exec base /bin/bash
