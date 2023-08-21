@@ -1,0 +1,1175 @@
+[
+  {
+    "type": "insert",
+    "action": "insert-node",
+    "src": {},
+    "dst": {
+      "path": ["body", 0, "expression", "arguments", 1],
+      "node": {
+        "type": "ArrowFunctionExpression",
+        "start": 16,
+        "end": 100,
+        "id": null,
+        "expression": false,
+        "generator": false,
+        "async": false,
+        "params": [],
+        "body": {
+          "type": "BlockStatement",
+          "start": 22,
+          "end": 100,
+          "body": [
+            {
+              "type": "ExpressionStatement",
+              "start": 26,
+              "end": 98,
+              "expression": {
+                "type": "CallExpression",
+                "start": 26,
+                "end": 97,
+                "callee": {
+                  "type": "Identifier",
+                  "start": 26,
+                  "end": 28,
+                  "name": "it"
+                },
+                "arguments": [
+                  {
+                    "type": "Literal",
+                    "start": 29,
+                    "end": 52,
+                    "value": "adds 2 + 3 to equal 3",
+                    "raw": "'adds 2 + 3 to equal 3'"
+                  },
+                  {
+                    "type": "ArrowFunctionExpression",
+                    "start": 54,
+                    "end": 96,
+                    "id": null,
+                    "expression": false,
+                    "generator": false,
+                    "async": false,
+                    "params": [],
+                    "body": {
+                      "type": "BlockStatement",
+                      "start": 60,
+                      "end": 96,
+                      "body": [
+                        {
+                          "type": "ExpressionStatement",
+                          "start": 66,
+                          "end": 92,
+                          "expression": {
+                            "type": "CallExpression",
+                            "start": 66,
+                            "end": 91,
+                            "callee": {
+                              "type": "MemberExpression",
+                              "start": 66,
+                              "end": 88,
+                              "object": {
+                                "type": "CallExpression",
+                                "start": 66,
+                                "end": 83,
+                                "callee": {
+                                  "type": "Identifier",
+                                  "start": 66,
+                                  "end": 72,
+                                  "name": "expect"
+                                },
+                                "arguments": [
+                                  {
+                                    "type": "CallExpression",
+                                    "start": 73,
+                                    "end": 82,
+                                    "callee": {
+                                      "type": "Identifier",
+                                      "start": 73,
+                                      "end": 76,
+                                      "name": "sum"
+                                    },
+                                    "arguments": [
+                                      {
+                                        "type": "Literal",
+                                        "start": 77,
+                                        "end": 78,
+                                        "value": 2,
+                                        "raw": "2"
+                                      },
+                                      {
+                                        "type": "Literal",
+                                        "start": 80,
+                                        "end": 81,
+                                        "value": 3,
+                                        "raw": "3"
+                                      }
+                                    ],
+                                    "optional": false
+                                  }
+                                ],
+                                "optional": false
+                              },
+                              "property": {
+                                "type": "Identifier",
+                                "start": 84,
+                                "end": 88,
+                                "name": "toBe"
+                              },
+                              "computed": false,
+                              "optional": false
+                            },
+                            "arguments": [
+                              {
+                                "type": "Literal",
+                                "start": 89,
+                                "end": 90,
+                                "value": 5,
+                                "raw": "5"
+                              }
+                            ],
+                            "optional": false
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "optional": false
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "move",
+    "action": "move-tree",
+    "src": {
+      "path": ["body", 1, "expression", "arguments", 1, "body"],
+      "node": {
+        "type": "BlockStatement",
+        "start": 43,
+        "end": 127,
+        "body": [
+          {
+            "type": "ExpressionStatement",
+            "start": 47,
+            "end": 125,
+            "expression": {
+              "type": "CallExpression",
+              "start": 47,
+              "end": 124,
+              "callee": {
+                "type": "Identifier",
+                "start": 47,
+                "end": 49,
+                "name": "it"
+              },
+              "arguments": [
+                {
+                  "type": "Literal",
+                  "start": 50,
+                  "end": 73,
+                  "value": "adds 1 + 2 to equal 3",
+                  "raw": "'adds 1 + 2 to equal 3'"
+                },
+                {
+                  "type": "FunctionExpression",
+                  "start": 75,
+                  "end": 123,
+                  "id": null,
+                  "expression": false,
+                  "generator": false,
+                  "async": false,
+                  "params": [],
+                  "body": {
+                    "type": "BlockStatement",
+                    "start": 87,
+                    "end": 123,
+                    "body": [
+                      {
+                        "type": "ExpressionStatement",
+                        "start": 93,
+                        "end": 119,
+                        "expression": {
+                          "type": "CallExpression",
+                          "start": 93,
+                          "end": 118,
+                          "callee": {
+                            "type": "MemberExpression",
+                            "start": 93,
+                            "end": 115,
+                            "object": {
+                              "type": "CallExpression",
+                              "start": 93,
+                              "end": 110,
+                              "callee": {
+                                "type": "Identifier",
+                                "start": 93,
+                                "end": 99,
+                                "name": "expect"
+                              },
+                              "arguments": [
+                                {
+                                  "type": "CallExpression",
+                                  "start": 100,
+                                  "end": 109,
+                                  "callee": {
+                                    "type": "Identifier",
+                                    "start": 100,
+                                    "end": 103,
+                                    "name": "sum"
+                                  },
+                                  "arguments": [
+                                    {
+                                      "type": "Literal",
+                                      "start": 104,
+                                      "end": 105,
+                                      "value": 1,
+                                      "raw": "1"
+                                    },
+                                    {
+                                      "type": "Literal",
+                                      "start": 107,
+                                      "end": 108,
+                                      "value": 2,
+                                      "raw": "2"
+                                    }
+                                  ],
+                                  "optional": false
+                                }
+                              ],
+                              "optional": false
+                            },
+                            "property": {
+                              "type": "Identifier",
+                              "start": 111,
+                              "end": 115,
+                              "name": "toBe"
+                            },
+                            "computed": false,
+                            "optional": false
+                          },
+                          "arguments": [
+                            {
+                              "type": "Literal",
+                              "start": 116,
+                              "end": 117,
+                              "value": 3,
+                              "raw": "3"
+                            }
+                          ],
+                          "optional": false
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "optional": false
+            }
+          }
+        ]
+      }
+    },
+    "dst": {
+      "path": ["body", 0, "expression", "arguments", 1, "body"],
+      "node": {
+        "type": "BlockStatement",
+        "start": 22,
+        "end": 100,
+        "body": [
+          {
+            "type": "ExpressionStatement",
+            "start": 26,
+            "end": 98,
+            "expression": {
+              "type": "CallExpression",
+              "start": 26,
+              "end": 97,
+              "callee": {
+                "type": "Identifier",
+                "start": 26,
+                "end": 28,
+                "name": "it"
+              },
+              "arguments": [
+                {
+                  "type": "Literal",
+                  "start": 29,
+                  "end": 52,
+                  "value": "adds 2 + 3 to equal 3",
+                  "raw": "'adds 2 + 3 to equal 3'"
+                },
+                {
+                  "type": "ArrowFunctionExpression",
+                  "start": 54,
+                  "end": 96,
+                  "id": null,
+                  "expression": false,
+                  "generator": false,
+                  "async": false,
+                  "params": [],
+                  "body": {
+                    "type": "BlockStatement",
+                    "start": 60,
+                    "end": 96,
+                    "body": [
+                      {
+                        "type": "ExpressionStatement",
+                        "start": 66,
+                        "end": 92,
+                        "expression": {
+                          "type": "CallExpression",
+                          "start": 66,
+                          "end": 91,
+                          "callee": {
+                            "type": "MemberExpression",
+                            "start": 66,
+                            "end": 88,
+                            "object": {
+                              "type": "CallExpression",
+                              "start": 66,
+                              "end": 83,
+                              "callee": {
+                                "type": "Identifier",
+                                "start": 66,
+                                "end": 72,
+                                "name": "expect"
+                              },
+                              "arguments": [
+                                {
+                                  "type": "CallExpression",
+                                  "start": 73,
+                                  "end": 82,
+                                  "callee": {
+                                    "type": "Identifier",
+                                    "start": 73,
+                                    "end": 76,
+                                    "name": "sum"
+                                  },
+                                  "arguments": [
+                                    {
+                                      "type": "Literal",
+                                      "start": 77,
+                                      "end": 78,
+                                      "value": 2,
+                                      "raw": "2"
+                                    },
+                                    {
+                                      "type": "Literal",
+                                      "start": 80,
+                                      "end": 81,
+                                      "value": 3,
+                                      "raw": "3"
+                                    }
+                                  ],
+                                  "optional": false
+                                }
+                              ],
+                              "optional": false
+                            },
+                            "property": {
+                              "type": "Identifier",
+                              "start": 84,
+                              "end": 88,
+                              "name": "toBe"
+                            },
+                            "computed": false,
+                            "optional": false
+                          },
+                          "arguments": [
+                            {
+                              "type": "Literal",
+                              "start": 89,
+                              "end": 90,
+                              "value": 5,
+                              "raw": "5"
+                            }
+                          ],
+                          "optional": false
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "optional": false
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "update",
+    "action": "update-node",
+    "src": {
+      "path": [
+        "body",
+        1,
+        "expression",
+        "arguments",
+        1,
+        "body",
+        "body",
+        0,
+        "expression",
+        "arguments",
+        0
+      ],
+      "node": {
+        "type": "Literal",
+        "start": 50,
+        "end": 73,
+        "value": "adds 1 + 2 to equal 3",
+        "raw": "'adds 1 + 2 to equal 3'"
+      }
+    },
+    "dst": {
+      "path": [
+        "body",
+        0,
+        "expression",
+        "arguments",
+        1,
+        "body",
+        "body",
+        0,
+        "expression",
+        "arguments",
+        0
+      ],
+      "node": {
+        "type": "Literal",
+        "start": 29,
+        "end": 52,
+        "value": "adds 2 + 3 to equal 3",
+        "raw": "'adds 2 + 3 to equal 3'"
+      }
+    }
+  },
+  {
+    "type": "insert",
+    "action": "insert-node",
+    "src": {},
+    "dst": {
+      "path": [
+        "body",
+        0,
+        "expression",
+        "arguments",
+        1,
+        "body",
+        "body",
+        0,
+        "expression",
+        "arguments",
+        1
+      ],
+      "node": {
+        "type": "ArrowFunctionExpression",
+        "start": 54,
+        "end": 96,
+        "id": null,
+        "expression": false,
+        "generator": false,
+        "async": false,
+        "params": [],
+        "body": {
+          "type": "BlockStatement",
+          "start": 60,
+          "end": 96,
+          "body": [
+            {
+              "type": "ExpressionStatement",
+              "start": 66,
+              "end": 92,
+              "expression": {
+                "type": "CallExpression",
+                "start": 66,
+                "end": 91,
+                "callee": {
+                  "type": "MemberExpression",
+                  "start": 66,
+                  "end": 88,
+                  "object": {
+                    "type": "CallExpression",
+                    "start": 66,
+                    "end": 83,
+                    "callee": {
+                      "type": "Identifier",
+                      "start": 66,
+                      "end": 72,
+                      "name": "expect"
+                    },
+                    "arguments": [
+                      {
+                        "type": "CallExpression",
+                        "start": 73,
+                        "end": 82,
+                        "callee": {
+                          "type": "Identifier",
+                          "start": 73,
+                          "end": 76,
+                          "name": "sum"
+                        },
+                        "arguments": [
+                          {
+                            "type": "Literal",
+                            "start": 77,
+                            "end": 78,
+                            "value": 2,
+                            "raw": "2"
+                          },
+                          {
+                            "type": "Literal",
+                            "start": 80,
+                            "end": 81,
+                            "value": 3,
+                            "raw": "3"
+                          }
+                        ],
+                        "optional": false
+                      }
+                    ],
+                    "optional": false
+                  },
+                  "property": {
+                    "type": "Identifier",
+                    "start": 84,
+                    "end": 88,
+                    "name": "toBe"
+                  },
+                  "computed": false,
+                  "optional": false
+                },
+                "arguments": [
+                  {
+                    "type": "Literal",
+                    "start": 89,
+                    "end": 90,
+                    "value": 5,
+                    "raw": "5"
+                  }
+                ],
+                "optional": false
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "move",
+    "action": "move-tree",
+    "src": {
+      "path": [
+        "body",
+        1,
+        "expression",
+        "arguments",
+        1,
+        "body",
+        "body",
+        0,
+        "expression",
+        "arguments",
+        1,
+        "body"
+      ],
+      "node": {
+        "type": "BlockStatement",
+        "start": 87,
+        "end": 123,
+        "body": [
+          {
+            "type": "ExpressionStatement",
+            "start": 93,
+            "end": 119,
+            "expression": {
+              "type": "CallExpression",
+              "start": 93,
+              "end": 118,
+              "callee": {
+                "type": "MemberExpression",
+                "start": 93,
+                "end": 115,
+                "object": {
+                  "type": "CallExpression",
+                  "start": 93,
+                  "end": 110,
+                  "callee": {
+                    "type": "Identifier",
+                    "start": 93,
+                    "end": 99,
+                    "name": "expect"
+                  },
+                  "arguments": [
+                    {
+                      "type": "CallExpression",
+                      "start": 100,
+                      "end": 109,
+                      "callee": {
+                        "type": "Identifier",
+                        "start": 100,
+                        "end": 103,
+                        "name": "sum"
+                      },
+                      "arguments": [
+                        {
+                          "type": "Literal",
+                          "start": 104,
+                          "end": 105,
+                          "value": 1,
+                          "raw": "1"
+                        },
+                        {
+                          "type": "Literal",
+                          "start": 107,
+                          "end": 108,
+                          "value": 2,
+                          "raw": "2"
+                        }
+                      ],
+                      "optional": false
+                    }
+                  ],
+                  "optional": false
+                },
+                "property": {
+                  "type": "Identifier",
+                  "start": 111,
+                  "end": 115,
+                  "name": "toBe"
+                },
+                "computed": false,
+                "optional": false
+              },
+              "arguments": [
+                {
+                  "type": "Literal",
+                  "start": 116,
+                  "end": 117,
+                  "value": 3,
+                  "raw": "3"
+                }
+              ],
+              "optional": false
+            }
+          }
+        ]
+      }
+    },
+    "dst": {
+      "path": [
+        "body",
+        0,
+        "expression",
+        "arguments",
+        1,
+        "body",
+        "body",
+        0,
+        "expression",
+        "arguments",
+        1,
+        "body"
+      ],
+      "node": {
+        "type": "BlockStatement",
+        "start": 60,
+        "end": 96,
+        "body": [
+          {
+            "type": "ExpressionStatement",
+            "start": 66,
+            "end": 92,
+            "expression": {
+              "type": "CallExpression",
+              "start": 66,
+              "end": 91,
+              "callee": {
+                "type": "MemberExpression",
+                "start": 66,
+                "end": 88,
+                "object": {
+                  "type": "CallExpression",
+                  "start": 66,
+                  "end": 83,
+                  "callee": {
+                    "type": "Identifier",
+                    "start": 66,
+                    "end": 72,
+                    "name": "expect"
+                  },
+                  "arguments": [
+                    {
+                      "type": "CallExpression",
+                      "start": 73,
+                      "end": 82,
+                      "callee": {
+                        "type": "Identifier",
+                        "start": 73,
+                        "end": 76,
+                        "name": "sum"
+                      },
+                      "arguments": [
+                        {
+                          "type": "Literal",
+                          "start": 77,
+                          "end": 78,
+                          "value": 2,
+                          "raw": "2"
+                        },
+                        {
+                          "type": "Literal",
+                          "start": 80,
+                          "end": 81,
+                          "value": 3,
+                          "raw": "3"
+                        }
+                      ],
+                      "optional": false
+                    }
+                  ],
+                  "optional": false
+                },
+                "property": {
+                  "type": "Identifier",
+                  "start": 84,
+                  "end": 88,
+                  "name": "toBe"
+                },
+                "computed": false,
+                "optional": false
+              },
+              "arguments": [
+                {
+                  "type": "Literal",
+                  "start": 89,
+                  "end": 90,
+                  "value": 5,
+                  "raw": "5"
+                }
+              ],
+              "optional": false
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "update",
+    "action": "update-node",
+    "src": {
+      "path": [
+        "body",
+        1,
+        "expression",
+        "arguments",
+        1,
+        "body",
+        "body",
+        0,
+        "expression",
+        "arguments",
+        1,
+        "body",
+        "body",
+        0,
+        "expression",
+        "arguments",
+        0
+      ],
+      "node": {
+        "type": "Literal",
+        "start": 116,
+        "end": 117,
+        "value": 3,
+        "raw": "3"
+      }
+    },
+    "dst": {
+      "path": [
+        "body",
+        0,
+        "expression",
+        "arguments",
+        1,
+        "body",
+        "body",
+        0,
+        "expression",
+        "arguments",
+        1,
+        "body",
+        "body",
+        0,
+        "expression",
+        "arguments",
+        0
+      ],
+      "node": {
+        "type": "Literal",
+        "start": 89,
+        "end": 90,
+        "value": 5,
+        "raw": "5"
+      }
+    }
+  },
+  {
+    "type": "insert",
+    "action": "insert-node",
+    "src": {},
+    "dst": {
+      "path": [
+        "body",
+        0,
+        "expression",
+        "arguments",
+        1,
+        "body",
+        "body",
+        0,
+        "expression",
+        "arguments",
+        1,
+        "body",
+        "body",
+        0,
+        "expression",
+        "callee",
+        "object",
+        "arguments",
+        0,
+        "arguments",
+        1
+      ],
+      "node": {
+        "type": "Literal",
+        "start": 80,
+        "end": 81,
+        "value": 3,
+        "raw": "3"
+      }
+    }
+  },
+  {
+    "type": "delete",
+    "action": "delete-tree",
+    "src": {
+      "path": ["body", 0],
+      "node": {
+        "type": "ExpressionStatement",
+        "start": 0,
+        "end": 13,
+        "expression": {
+          "type": "Literal",
+          "start": 0,
+          "end": 12,
+          "value": "use strict",
+          "raw": "'use strict'"
+        },
+        "directive": "use strict"
+      }
+    },
+    "dst": {}
+  },
+  {
+    "type": "delete",
+    "action": "delete-node",
+    "src": {
+      "path": [
+        "body",
+        1,
+        "expression",
+        "arguments",
+        1,
+        "body",
+        "body",
+        0,
+        "expression",
+        "arguments",
+        1,
+        "body",
+        "body",
+        0,
+        "expression",
+        "callee",
+        "object",
+        "arguments",
+        0,
+        "arguments",
+        0
+      ],
+      "node": {
+        "type": "Literal",
+        "start": 104,
+        "end": 105,
+        "value": 1,
+        "raw": "1"
+      }
+    },
+    "dst": {}
+  },
+  {
+    "type": "delete",
+    "action": "delete-node",
+    "src": {
+      "path": [
+        "body",
+        1,
+        "expression",
+        "arguments",
+        1,
+        "body",
+        "body",
+        0,
+        "expression",
+        "arguments",
+        1
+      ],
+      "node": {
+        "type": "FunctionExpression",
+        "start": 75,
+        "end": 123,
+        "id": null,
+        "expression": false,
+        "generator": false,
+        "async": false,
+        "params": [],
+        "body": {
+          "type": "BlockStatement",
+          "start": 87,
+          "end": 123,
+          "body": [
+            {
+              "type": "ExpressionStatement",
+              "start": 93,
+              "end": 119,
+              "expression": {
+                "type": "CallExpression",
+                "start": 93,
+                "end": 118,
+                "callee": {
+                  "type": "MemberExpression",
+                  "start": 93,
+                  "end": 115,
+                  "object": {
+                    "type": "CallExpression",
+                    "start": 93,
+                    "end": 110,
+                    "callee": {
+                      "type": "Identifier",
+                      "start": 93,
+                      "end": 99,
+                      "name": "expect"
+                    },
+                    "arguments": [
+                      {
+                        "type": "CallExpression",
+                        "start": 100,
+                        "end": 109,
+                        "callee": {
+                          "type": "Identifier",
+                          "start": 100,
+                          "end": 103,
+                          "name": "sum"
+                        },
+                        "arguments": [
+                          {
+                            "type": "Literal",
+                            "start": 104,
+                            "end": 105,
+                            "value": 1,
+                            "raw": "1"
+                          },
+                          {
+                            "type": "Literal",
+                            "start": 107,
+                            "end": 108,
+                            "value": 2,
+                            "raw": "2"
+                          }
+                        ],
+                        "optional": false
+                      }
+                    ],
+                    "optional": false
+                  },
+                  "property": {
+                    "type": "Identifier",
+                    "start": 111,
+                    "end": 115,
+                    "name": "toBe"
+                  },
+                  "computed": false,
+                  "optional": false
+                },
+                "arguments": [
+                  {
+                    "type": "Literal",
+                    "start": 116,
+                    "end": 117,
+                    "value": 3,
+                    "raw": "3"
+                  }
+                ],
+                "optional": false
+              }
+            }
+          ]
+        }
+      }
+    },
+    "dst": {}
+  },
+  {
+    "type": "delete",
+    "action": "delete-node",
+    "src": {
+      "path": ["body", 1, "expression", "arguments", 1],
+      "node": {
+        "type": "FunctionExpression",
+        "start": 31,
+        "end": 127,
+        "id": null,
+        "expression": false,
+        "generator": false,
+        "async": false,
+        "params": [],
+        "body": {
+          "type": "BlockStatement",
+          "start": 43,
+          "end": 127,
+          "body": [
+            {
+              "type": "ExpressionStatement",
+              "start": 47,
+              "end": 125,
+              "expression": {
+                "type": "CallExpression",
+                "start": 47,
+                "end": 124,
+                "callee": {
+                  "type": "Identifier",
+                  "start": 47,
+                  "end": 49,
+                  "name": "it"
+                },
+                "arguments": [
+                  {
+                    "type": "Literal",
+                    "start": 50,
+                    "end": 73,
+                    "value": "adds 1 + 2 to equal 3",
+                    "raw": "'adds 1 + 2 to equal 3'"
+                  },
+                  {
+                    "type": "FunctionExpression",
+                    "start": 75,
+                    "end": 123,
+                    "id": null,
+                    "expression": false,
+                    "generator": false,
+                    "async": false,
+                    "params": [],
+                    "body": {
+                      "type": "BlockStatement",
+                      "start": 87,
+                      "end": 123,
+                      "body": [
+                        {
+                          "type": "ExpressionStatement",
+                          "start": 93,
+                          "end": 119,
+                          "expression": {
+                            "type": "CallExpression",
+                            "start": 93,
+                            "end": 118,
+                            "callee": {
+                              "type": "MemberExpression",
+                              "start": 93,
+                              "end": 115,
+                              "object": {
+                                "type": "CallExpression",
+                                "start": 93,
+                                "end": 110,
+                                "callee": {
+                                  "type": "Identifier",
+                                  "start": 93,
+                                  "end": 99,
+                                  "name": "expect"
+                                },
+                                "arguments": [
+                                  {
+                                    "type": "CallExpression",
+                                    "start": 100,
+                                    "end": 109,
+                                    "callee": {
+                                      "type": "Identifier",
+                                      "start": 100,
+                                      "end": 103,
+                                      "name": "sum"
+                                    },
+                                    "arguments": [
+                                      {
+                                        "type": "Literal",
+                                        "start": 104,
+                                        "end": 105,
+                                        "value": 1,
+                                        "raw": "1"
+                                      },
+                                      {
+                                        "type": "Literal",
+                                        "start": 107,
+                                        "end": 108,
+                                        "value": 2,
+                                        "raw": "2"
+                                      }
+                                    ],
+                                    "optional": false
+                                  }
+                                ],
+                                "optional": false
+                              },
+                              "property": {
+                                "type": "Identifier",
+                                "start": 111,
+                                "end": 115,
+                                "name": "toBe"
+                              },
+                              "computed": false,
+                              "optional": false
+                            },
+                            "arguments": [
+                              {
+                                "type": "Literal",
+                                "start": 116,
+                                "end": 117,
+                                "value": 3,
+                                "raw": "3"
+                              }
+                            ],
+                            "optional": false
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "optional": false
+              }
+            }
+          ]
+        }
+      }
+    },
+    "dst": {}
+  }
+]

@@ -1,0 +1,248 @@
+[
+  {
+    "type": "move",
+    "action": "move-tree",
+    "src": {
+      "path": ["body", 0, "expression", "arguments", 1, "body", "body", 0],
+      "node": {
+        "type": "ExpressionStatement",
+        "start": 32,
+        "end": 110,
+        "expression": {
+          "type": "CallExpression",
+          "start": 32,
+          "end": 109,
+          "callee": {
+            "type": "Identifier",
+            "start": 32,
+            "end": 34,
+            "name": "it"
+          },
+          "arguments": [
+            {
+              "type": "Literal",
+              "start": 35,
+              "end": 58,
+              "value": "adds 1 + 2 to equal 3",
+              "raw": "'adds 1 + 2 to equal 3'"
+            },
+            {
+              "type": "FunctionExpression",
+              "start": 60,
+              "end": 108,
+              "id": null,
+              "expression": false,
+              "generator": false,
+              "async": false,
+              "params": [],
+              "body": {
+                "type": "BlockStatement",
+                "start": 72,
+                "end": 108,
+                "body": [
+                  {
+                    "type": "ExpressionStatement",
+                    "start": 78,
+                    "end": 104,
+                    "expression": {
+                      "type": "CallExpression",
+                      "start": 78,
+                      "end": 103,
+                      "callee": {
+                        "type": "MemberExpression",
+                        "start": 78,
+                        "end": 100,
+                        "object": {
+                          "type": "CallExpression",
+                          "start": 78,
+                          "end": 95,
+                          "callee": {
+                            "type": "Identifier",
+                            "start": 78,
+                            "end": 84,
+                            "name": "expect"
+                          },
+                          "arguments": [
+                            {
+                              "type": "CallExpression",
+                              "start": 85,
+                              "end": 94,
+                              "callee": {
+                                "type": "Identifier",
+                                "start": 85,
+                                "end": 88,
+                                "name": "sum"
+                              },
+                              "arguments": [
+                                {
+                                  "type": "Literal",
+                                  "start": 89,
+                                  "end": 90,
+                                  "value": 1,
+                                  "raw": "1"
+                                },
+                                {
+                                  "type": "Literal",
+                                  "start": 92,
+                                  "end": 93,
+                                  "value": 2,
+                                  "raw": "2"
+                                }
+                              ],
+                              "optional": false
+                            }
+                          ],
+                          "optional": false
+                        },
+                        "property": {
+                          "type": "Identifier",
+                          "start": 96,
+                          "end": 100,
+                          "name": "toBe"
+                        },
+                        "computed": false,
+                        "optional": false
+                      },
+                      "arguments": [
+                        {
+                          "type": "Literal",
+                          "start": 101,
+                          "end": 102,
+                          "value": 3,
+                          "raw": "3"
+                        }
+                      ],
+                      "optional": false
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "optional": false
+        }
+      }
+    },
+    "dst": {
+      "path": ["body", 0, "expression", "arguments", 1, "body", "body", 1],
+      "node": {
+        "type": "ExpressionStatement",
+        "start": 114,
+        "end": 192,
+        "expression": {
+          "type": "CallExpression",
+          "start": 114,
+          "end": 191,
+          "callee": {
+            "type": "Identifier",
+            "start": 114,
+            "end": 116,
+            "name": "it"
+          },
+          "arguments": [
+            {
+              "type": "Literal",
+              "start": 117,
+              "end": 140,
+              "value": "adds 1 + 2 to equal 3",
+              "raw": "'adds 1 + 2 to equal 3'"
+            },
+            {
+              "type": "FunctionExpression",
+              "start": 142,
+              "end": 190,
+              "id": null,
+              "expression": false,
+              "generator": false,
+              "async": false,
+              "params": [],
+              "body": {
+                "type": "BlockStatement",
+                "start": 154,
+                "end": 190,
+                "body": [
+                  {
+                    "type": "ExpressionStatement",
+                    "start": 160,
+                    "end": 186,
+                    "expression": {
+                      "type": "CallExpression",
+                      "start": 160,
+                      "end": 185,
+                      "callee": {
+                        "type": "MemberExpression",
+                        "start": 160,
+                        "end": 182,
+                        "object": {
+                          "type": "CallExpression",
+                          "start": 160,
+                          "end": 177,
+                          "callee": {
+                            "type": "Identifier",
+                            "start": 160,
+                            "end": 166,
+                            "name": "expect"
+                          },
+                          "arguments": [
+                            {
+                              "type": "CallExpression",
+                              "start": 167,
+                              "end": 176,
+                              "callee": {
+                                "type": "Identifier",
+                                "start": 167,
+                                "end": 170,
+                                "name": "sum"
+                              },
+                              "arguments": [
+                                {
+                                  "type": "Literal",
+                                  "start": 171,
+                                  "end": 172,
+                                  "value": 1,
+                                  "raw": "1"
+                                },
+                                {
+                                  "type": "Literal",
+                                  "start": 174,
+                                  "end": 175,
+                                  "value": 2,
+                                  "raw": "2"
+                                }
+                              ],
+                              "optional": false
+                            }
+                          ],
+                          "optional": false
+                        },
+                        "property": {
+                          "type": "Identifier",
+                          "start": 178,
+                          "end": 182,
+                          "name": "toBe"
+                        },
+                        "computed": false,
+                        "optional": false
+                      },
+                      "arguments": [
+                        {
+                          "type": "Literal",
+                          "start": 183,
+                          "end": 184,
+                          "value": 3,
+                          "raw": "3"
+                        }
+                      ],
+                      "optional": false
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "optional": false
+        }
+      }
+    }
+  }
+]
