@@ -14,13 +14,13 @@
     "skipLibCheck": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "rootDir": "./src",
+    "rootDir": "./",
     "outDir": "./lib",
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "./src/**/*"],
   "exclude": ["node_modules", ".yarn", "lib"]
 }
