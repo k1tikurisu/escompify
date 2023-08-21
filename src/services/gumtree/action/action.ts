@@ -1,9 +1,13 @@
 import { api } from '@/services/gumtree';
 import { Node } from 'estree';
 
-type ActionType = {
+export type ActionType = {
   type: 'insert' | 'move' | 'update' | 'delete';
-  action: 'insert-node' | 'move-node' | 'update-node' | 'delete-node';
+  action:
+    | `inser-${'node' | 'tree'}`
+    | `move-${'node' | 'tree'}`
+    | `update-${'node' | 'tree'}`
+    | `delete-${'node' | 'tree'}`;
   src: ActionDetailsType;
   dst: ActionDetailsType;
 };
