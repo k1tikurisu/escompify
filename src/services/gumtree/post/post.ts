@@ -18,7 +18,13 @@ type PostGumTreeResponseType = {
 };
 
 export async function postDiff({ body }: PostGumTreeRequestType) {
-  const res = await api.post<PostGumTreeResponseType>('/post', { ...body });
+  try {
+    const res = await api.post<PostGumTreeResponseType>('/post', { ...body });
 
-  return { data: res.data };
+    if (res.status === 200) return { data: res.data };
+
+    return null;
+  } catch (e) {
+    console.error(e);
+  }
 }

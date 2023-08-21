@@ -18,7 +18,13 @@ type ActionDetailsType = {
 };
 
 export async function getAction(id: number) {
-  const res = await api.get<ActionType[]>(`/action/${id}`);
+  try {
+    const res = await api.get<ActionType[]>(`/action/${id}`);
 
-  return { data: res.data };
+    if (res.status === 200) return { data: res.data };
+
+    return null;
+  } catch (e) {
+    console.error(e);
+  }
 }
