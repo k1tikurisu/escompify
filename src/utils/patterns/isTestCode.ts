@@ -1,6 +1,6 @@
 import { Node } from 'estree';
 
-export function isTestCase(node: Node) {
+export function isTestCode(node: Node) {
   if (node.type === 'ExpressionStatement') {
     const { expression } = node;
 

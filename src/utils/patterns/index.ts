@@ -1,1 +1,1 @@
-export { isTestCase } from '@/utils/patterns/isTestCase';
+export { isTestCode } from '@/utils/patterns/isTestCode';

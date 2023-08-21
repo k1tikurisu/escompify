@@ -1,1 +1,1 @@
-export { isTestCaseDeleted } from '@/patterns/isTestCaseDeleted';
+export { isTestCodeDeleted } from '@/patterns/isTestCodeDeleted';
