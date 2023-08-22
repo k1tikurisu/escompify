@@ -1,22 +1,15 @@
 import { Node } from 'estree';
 
 export function isTestCode(node: Node) {
-  if (node.type === 'ExpressionStatement') {
-    const { expression } = node;
+  if (node.type === 'CallExpression' && node.callee.type === 'Identifier') {
+    const [arg1, arg2] = node.arguments;
+    const calleeName = node.callee.name;
 
-    if (
-      expression.type === 'CallExpression' &&
-      expression.callee.type === 'Identifier'
-    ) {
-      const [arg1, arg2] = expression.arguments;
-      const calleeName = expression.callee.name;
-
-      return (
-        isTestFunctionName(calleeName) &&
-        isLiteral(arg1) &&
-        isFunctionExpression(arg2)
-      );
-    }
+    return (
+      isTestFunctionName(calleeName) &&
+      isLiteral(arg1) &&
+      isFunctionExpression(arg2)
+    );
   }
 
   return false;
