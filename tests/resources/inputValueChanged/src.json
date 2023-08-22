@@ -1,0 +1,169 @@
+{
+  "type": "Program",
+  "start": 0,
+  "end": 114,
+  "body": [
+    {
+      "type": "ExpressionStatement",
+      "start": 0,
+      "end": 114,
+      "expression": {
+        "type": "CallExpression",
+        "start": 0,
+        "end": 113,
+        "callee": {
+          "type": "Identifier",
+          "start": 0,
+          "end": 8,
+          "name": "describe"
+        },
+        "arguments": [
+          {
+            "type": "Literal",
+            "start": 9,
+            "end": 14,
+            "value": "sum",
+            "raw": "'sum'"
+          },
+          {
+            "type": "FunctionExpression",
+            "start": 16,
+            "end": 112,
+            "id": null,
+            "expression": false,
+            "generator": false,
+            "async": false,
+            "params": [],
+            "body": {
+              "type": "BlockStatement",
+              "start": 28,
+              "end": 112,
+              "body": [
+                {
+                  "type": "ExpressionStatement",
+                  "start": 32,
+                  "end": 110,
+                  "expression": {
+                    "type": "CallExpression",
+                    "start": 32,
+                    "end": 109,
+                    "callee": {
+                      "type": "Identifier",
+                      "start": 32,
+                      "end": 34,
+                      "name": "it"
+                    },
+                    "arguments": [
+                      {
+                        "type": "Literal",
+                        "start": 35,
+                        "end": 58,
+                        "value": "adds 1 + 2 to equal 3",
+                        "raw": "'adds 1 + 2 to equal 3'"
+                      },
+                      {
+                        "type": "FunctionExpression",
+                        "start": 60,
+                        "end": 108,
+                        "id": null,
+                        "expression": false,
+                        "generator": false,
+                        "async": false,
+                        "params": [],
+                        "body": {
+                          "type": "BlockStatement",
+                          "start": 72,
+                          "end": 108,
+                          "body": [
+                            {
+                              "type": "ExpressionStatement",
+                              "start": 78,
+                              "end": 104,
+                              "expression": {
+                                "type": "CallExpression",
+                                "start": 78,
+                                "end": 103,
+                                "callee": {
+                                  "type": "MemberExpression",
+                                  "start": 78,
+                                  "end": 100,
+                                  "object": {
+                                    "type": "CallExpression",
+                                    "start": 78,
+                                    "end": 95,
+                                    "callee": {
+                                      "type": "Identifier",
+                                      "start": 78,
+                                      "end": 84,
+                                      "name": "expect"
+                                    },
+                                    "arguments": [
+                                      {
+                                        "type": "CallExpression",
+                                        "start": 85,
+                                        "end": 94,
+                                        "callee": {
+                                          "type": "Identifier",
+                                          "start": 85,
+                                          "end": 88,
+                                          "name": "sum"
+                                        },
+                                        "arguments": [
+                                          {
+                                            "type": "Literal",
+                                            "start": 89,
+                                            "end": 90,
+                                            "value": 1,
+                                            "raw": "1"
+                                          },
+                                          {
+                                            "type": "Literal",
+                                            "start": 92,
+                                            "end": 93,
+                                            "value": 2,
+                                            "raw": "2"
+                                          }
+                                        ],
+                                        "optional": false
+                                      }
+                                    ],
+                                    "optional": false
+                                  },
+                                  "property": {
+                                    "type": "Identifier",
+                                    "start": 96,
+                                    "end": 100,
+                                    "name": "toBe"
+                                  },
+                                  "computed": false,
+                                  "optional": false
+                                },
+                                "arguments": [
+                                  {
+                                    "type": "Literal",
+                                    "start": 101,
+                                    "end": 102,
+                                    "value": 3,
+                                    "raw": "3"
+                                  }
+                                ],
+                                "optional": false
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "optional": false
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "optional": false
+      }
+    }
+  ],
+  "sourceType": "module"
+}
