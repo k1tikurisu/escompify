@@ -1,5 +1,5 @@
 import { api } from '@/services/gumtree';
-import { Program } from 'estree';
+import { Node } from 'estree';
 
 type GetAstRequestType = {
   id: number;
@@ -8,7 +8,7 @@ type GetAstRequestType = {
 
 export async function getAst({ id, type }: GetAstRequestType) {
   try {
-    const res = await api.get<Program>(`/ast/${type}/${id}`);
+    const res = await api.get<Node>(`/ast/${type}/${id}`);
 
     if (res.status === 200) return { data: res.data };
 
