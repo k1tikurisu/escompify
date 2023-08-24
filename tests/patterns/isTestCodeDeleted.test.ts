@@ -16,6 +16,13 @@ describe('isTestCodeDeleted', () => {
     expect(isTestDeleted).toBe(true);
   });
 
+  it('should return true for a deleted nested test case', async () => {
+    const actions = loadAction('nestedTestDeleted');
+    const isTestDeleted = actions.some((action) => isTestCodeDeleted(action));
+
+    expect(isTestDeleted).toBe(true);
+  });
+
   it('should return false for a changed test code', async () => {
     const actions = loadAction('testCodeChanged');
     const isTestDeleted = actions.some((action) => isTestCodeDeleted(action));
