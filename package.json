@@ -16,7 +16,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "acorn": "^8.10.0",
+    "@babel/core": "^7.22.11",
     "axios": "^1.4.0",
     "dotenv": "^16.1.4",
     "progress": "^2.0.3",
@@ -26,7 +26,6 @@
     "yargs": "^17.7.1"
   },
   "devDependencies": {
-    "@types/estree": "^1.0.1",
     "@types/jest": "^29.5.3",
     "@types/node": "^18.16.1",
     "@types/yargs": "^17.0.24",

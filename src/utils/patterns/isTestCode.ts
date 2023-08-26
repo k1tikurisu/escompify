@@ -1,34 +1,19 @@
-import { Node } from 'estree';
+import { NodePath, types as t } from '@babel/core';
 
-export function isTestCode(node: Node) {
-  if (node.type === 'CallExpression' && node.callee.type === 'Identifier') {
-    const [arg1, arg2] = node.arguments;
-    const calleeName = node.callee.name;
+export function isTestCode(path: NodePath<t.CallExpression>) {
+  const {
+    callee,
+    arguments: [arg1, arg2]
+  } = path.node;
 
-    return (
-      isTestFunctionName(calleeName) &&
-      isLiteral(arg1) &&
-      isFunctionExpression(arg2)
-    );
-  }
+  if (!t.isIdentifier(callee)) return false;
 
-  return false;
-}
+  const calleeName = callee.name;
+  const testFunctionNames = ['it', 'test', 'describe'];
 
-function isTestFunctionName(name: string) {
-  const testFunctionName = ['it', 'test', 'describe'];
-
-  return testFunctionName.includes(name);
-}
-
-function isLiteral(node: Node | undefined) {
-  return !!node && node.type === 'Literal';
-}
-
-function isFunctionExpression(node: Node | undefined) {
   return (
-    !!node &&
-    (node.type === 'FunctionExpression' ||
-      node.type === 'ArrowFunctionExpression')
+    testFunctionNames.includes(calleeName) &&
+    t.isStringLiteral(arg1) &&
+    (t.isFunctionExpression(arg2) || t.isArrowFunctionExpression(arg2))
   );
 }

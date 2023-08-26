@@ -1,22 +1,20 @@
 import { ActionType } from '@/services/gumtree';
 import { isTestCode } from '@/utils/patterns';
-import { simple } from 'acorn-walk';
+import { traverse } from '@babel/core';
 
 export function isTestCodeDeleted(action: ActionType) {
-  try {
-    if (action.action === 'delete-tree') {
-      simple(action.src.node, {
-        CallExpression(node) {
-          if (isTestCode(node)) {
-            // stop the walk (https://github.com/acornjs/acorn/issues/625)
-            throw true;
-          }
+  let foundTestCode = false;
+
+  if (action.action === 'delete-tree') {
+    traverse(action.src.node, {
+      CallExpression(path) {
+        if (isTestCode(path)) {
+          foundTestCode = true;
+          path.stop();
         }
-      });
-    }
-  } catch {
-    return true;
+      }
+    });
   }
 
-  return false;
+  return foundTestCode;
 }
