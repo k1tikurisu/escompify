@@ -2,9 +2,10 @@ import { api } from '@/services/gumtree';
 import { Node } from '@babel/core';
 
 export type ActionType = {
-  type: 'insert' | 'move' | 'update' | 'delete';
+  type: 'match' | 'insert' | 'move' | 'update' | 'delete';
   action:
-    | `inser-${'node' | 'tree'}`
+    | 'match'
+    | `insert-${'node' | 'tree'}`
     | `move-${'node' | 'tree'}`
     | `update-${'node' | 'tree'}`
     | `delete-${'node' | 'tree'}`;
