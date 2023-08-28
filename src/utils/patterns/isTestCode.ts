@@ -1,6 +1,8 @@
 import { NodePath, types as t } from '@babel/core';
 
-export function isTestCode(path: NodePath<t.CallExpression>) {
+export function isTestCode(path: NodePath<t.Node>) {
+  if (!t.isCallExpression(path.node)) return false;
+
   const {
     callee,
     arguments: [arg1, arg2]
