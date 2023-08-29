@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "/works/src/__generated__/client" // 型定義ファイルの出力パスを指定
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model GumTree {
+  key      String @unique
+  serverId Int    @id
+  srcAst   String
+  dstAst   String
+  actions  String
+}

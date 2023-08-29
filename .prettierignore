@@ -4,3 +4,4 @@ README.md
 datasets
 lib
 tests/**/*.js
+__generated__

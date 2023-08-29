@@ -4,3 +4,4 @@ datasets
 diffs
 lib
 tests/**/*.js
+__generated__

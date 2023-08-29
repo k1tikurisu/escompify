@@ -18,3 +18,7 @@ datasets
 diffs
 
 lib
+
+# db
+db/**/*.db
+__generated__

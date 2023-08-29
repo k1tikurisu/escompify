@@ -1,16 +1,16 @@
-import { ActionType } from '@/services/gumtree';
-import { Node } from '@babel/core';
 import {
+  findImportedModules,
   isExpectedValueChanged,
   isTestCodeDeleted,
   isTestCodeExtension
 } from '@/patterns/';
+import { GumTree } from '@/__generated__/client';
 
-export function isBreaking(
-  actions: ActionType[],
-  srcAst: Node,
-  importedModules: string[]
-) {
+export function isBreaking(data: GumTree) {
+  const srcAst = JSON.parse(data.srcAst);
+  const actions = JSON.parse(data.actions);
+  const importedModules = findImportedModules(srcAst);
+
   for (const action of actions) {
     if (isTestCodeDeleted(action)) return true;
     if (isTestCodeExtension(action, importedModules)) return true;
