@@ -43,7 +43,7 @@ async function processGumTreeData(
     dstHash
   );
 
-  if (!srcCode || !dstCode) {
+  if (!srcCode && !dstCode) {
     return null;
   }
 
