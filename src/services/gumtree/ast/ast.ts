@@ -1,5 +1,5 @@
 import { api } from '@/services/gumtree';
-import { Node } from 'estree';
+import { Node } from '@babel/core';
 
 type GetAstRequestType = {
   id: number;
