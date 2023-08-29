@@ -1,2 +1,6 @@
-src
-tsconfig*
+*
+*/
+!README.md
+!LICENSE
+!package.json
+!lib
