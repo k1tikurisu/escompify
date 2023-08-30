@@ -13,7 +13,8 @@
     "clean": "tsc --build --clean",
     "lint": "eslint --ext .js,.ts",
     "format": "prettier --write .",
-    "test": "jest"
+    "test": "jest",
+    "runner:fose": "docker build -t k1tikurisu/fose --progress=plain ./runner-fose"
   },
   "prisma": {
     "schema": "/works/db/schema.prisma"

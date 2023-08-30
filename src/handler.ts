@@ -2,7 +2,6 @@ import { MyArgs } from '@/cli';
 import { getAction, getAst, postDiff } from '@/services/gumtree/';
 import simpleGit from 'simple-git';
 import db from '@/libs/prisma';
-import { isBreaking } from '@/patterns';
 import { getChangedTestFilePaths, mergeFileIfExists } from '@/utils/files';
 
 export async function handler(argv: MyArgs) {
@@ -11,7 +10,9 @@ export async function handler(argv: MyArgs) {
   const data = await getGumTreeData(path, srcHash, dstHash);
   if (!data) return null;
 
-  return isBreaking(data);
+  console.log('id:', data.serverId, 'key:', data.key);
+
+  return null;
 }
 
 async function getGumTreeData(path: string, srcHash: string, dstHash: string) {
