@@ -9,7 +9,7 @@ type PostGumTreeRequestType = {
 
 type PostGumTreeResponseType = {
   diff_id: number;
-  status: 'success' | 'failure';
+  status: 'success' | 'failed';
   diff_data: `/diff/${number}`;
   src_ast: `/ast/src/${number}`;
   dst_ast: `/ast/dst/${number}`;

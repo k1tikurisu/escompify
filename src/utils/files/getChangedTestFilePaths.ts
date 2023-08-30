@@ -16,7 +16,8 @@ export async function getChangedTestFilePaths(
         /\.(ts|js)$/.test(path) &&
         !path.endsWith('.d.ts')
       );
-    });
+    })
+    .map((path) => `${repoPath}/${path}`);
 
   return paths;
 }
