@@ -10,15 +10,18 @@ export async function handler(argv: MyArgs) {
   const data = await getGumTreeData(path, srcHash, dstHash);
   if (!data) return null;
 
-  console.log('id:', data.serverId, 'key:', data.key);
-
-  return null;
+  return data;
 }
 
 async function getGumTreeData(path: string, srcHash: string, dstHash: string) {
   try {
     const data = await db.gumTree.findUnique({
-      where: { key: `${path}:${srcHash}:${dstHash}` }
+      where: {
+        key: `${path}:${srcHash}:${dstHash}`,
+        status: {
+          in: ['success', 'matched']
+        }
+      }
     });
 
     if (data) {
@@ -44,9 +47,22 @@ async function processGumTreeData(
     dstHash
   );
 
-  if (!srcCode && !dstCode) {
+  // 外れ値を除外
+  if (new Blob([srcCode, dstCode]).size >= 165956) {
+    await db.gumTree.create({
+      data: {
+        key: `${path}:${srcHash}:${dstHash}`,
+        serverId: null,
+        status: 'exceeded',
+        actions: JSON.stringify([]),
+        srcAst: JSON.stringify({}),
+        dstAst: JSON.stringify({})
+      }
+    });
     return null;
   }
+
+  const isMatched = !srcCode && !dstCode;
 
   const res = await postDiff({
     body: { src_code: srcCode, dst_code: dstCode }
@@ -55,6 +71,17 @@ async function processGumTreeData(
   const id = res?.data.diff_id;
 
   if (!id) {
+    await db.gumTree.create({
+      data: {
+        key: `${path}:${srcHash}:${dstHash}`,
+        serverId: null,
+        status: 'error',
+        actions: JSON.stringify([]),
+        srcAst: JSON.stringify({}),
+        dstAst: JSON.stringify({})
+      }
+    });
+
     return null;
   }
 
@@ -64,16 +91,13 @@ async function processGumTreeData(
     getAst({ id, type: 'dst' })
   ]);
 
-  if (!actions || !srcAst || !dstAst) {
-    return null;
-  }
-
   const gumTreeData = {
     serverId: id,
     key: `${path}:${srcHash}:${dstHash}`,
-    actions: JSON.stringify(actions),
-    srcAst: JSON.stringify(srcAst),
-    dstAst: JSON.stringify(dstAst)
+    actions: JSON.stringify(actions?.data ?? []),
+    srcAst: JSON.stringify(srcAst?.data ?? {}),
+    dstAst: JSON.stringify(dstAst?.data ?? {}),
+    status: isMatched ? 'matched' : res.data.status
   };
 
   await db.gumTree.create({

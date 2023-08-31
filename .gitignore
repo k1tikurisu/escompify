@@ -22,3 +22,5 @@ lib
 # db
 db/**/*.db
 __generated__
+
+tmp

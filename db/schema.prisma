@@ -9,8 +9,10 @@ datasource db {
 }
 
 model GumTree {
+  id       Int    @id @default(autoincrement())
   key      String @unique
-  serverId Int    @id
+  serverId Int?
+  status   String
   srcAst   String
   dstAst   String
   actions  String
