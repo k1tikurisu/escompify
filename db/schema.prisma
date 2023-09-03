@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "/works/src/__generated__/client" // 型定義ファイルの出力パスを指定
+  output   = "/works/src/__generated__/client"
 }
 
 datasource db {

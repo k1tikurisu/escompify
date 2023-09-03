@@ -1,5 +1,5 @@
 export { isTestCode } from '@/utils/patterns/isTestCode';
 export {
-  findActualAndExpected,
-  type ActualAndExpectedType
+  findActualsAndExpects,
+  type ActualAndExpectsType
 } from '@/utils/patterns/findActualAndExpected';
