@@ -1,6 +1,10 @@
 import { NodePath, types as t } from '@babel/core';
 
-export function isTestCode(path: NodePath<t.Node>) {
+type OptionsType = {
+  type: 'testCase';
+};
+
+export function isTestCode(path: NodePath<t.Node>, options?: OptionsType) {
   if (!t.isCallExpression(path.node)) return false;
 
   const {
@@ -11,7 +15,8 @@ export function isTestCode(path: NodePath<t.Node>) {
   if (!t.isIdentifier(callee)) return false;
 
   const calleeName = callee.name;
-  const testFunctionNames = ['it', 'test', 'describe'];
+  const testFunctionNames =
+    options?.type === 'testCase' ? ['it', 'test'] : ['it', 'test', 'describe'];
 
   return (
     testFunctionNames.includes(calleeName) &&

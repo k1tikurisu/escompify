@@ -1,5 +1,5 @@
 import { ActionType } from '@/services/gumtree';
-import { isTestCode } from '@/utils/patterns';
+import { isTestCode } from '@/patterns';
 import { traverse } from '@babel/core';
 
 export function isTestCodeDeleted(action: ActionType) {

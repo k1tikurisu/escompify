@@ -43,9 +43,7 @@ export function findActualsAndExpects(node: Node, code: string) {
     }
   });
 
-  console.log(actualsAndExpects);
-
-  return { actualsAndExpects };
+  return actualsAndExpects;
 }
 
 function extractActualAndExpected(
