@@ -1,6 +1,10 @@
+export {
+  findTestCodeRange,
+  type TestCodeRangeType
+} from '@/patterns/findTestCodeRange';
 export { isTestCodeDeleted } from '@/patterns/isTestCodeDeleted';
 export { isExpectedChanged } from '@/patterns/isExpectedChanged';
-export { isTestCodeExtension } from '@/patterns/isTestCodeExtension';
+export { isTestInsertedWithinTest } from '@/patterns/isTestInsertedWithinTest';
 export {
   findActualsAndExpects,
   type ActualAndExpectsType

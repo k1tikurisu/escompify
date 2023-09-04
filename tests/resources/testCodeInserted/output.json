@@ -1,0 +1,14 @@
+{
+  "matches": [
+    { "src": "File [0,0]", "dest": "File [0,114]" },
+    { "src": "Program [0,0]", "dest": "Program [0,114]" }
+  ],
+  "actions": [
+    {
+      "action": "insert-tree",
+      "tree": "ExpressionStatement [0,114]",
+      "parent": "Program [0,114]",
+      "at": 0
+    }
+  ]
+}

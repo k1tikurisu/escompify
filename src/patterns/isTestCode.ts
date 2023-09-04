@@ -7,11 +7,7 @@ import {
   isCallExpression
 } from '@babel/types';
 
-type OptionsType = {
-  type: 'testCase';
-};
-
-export function isTestCode(path: NodePath<Node>, options?: OptionsType) {
+export function isTestCode(path: NodePath<Node>) {
   if (!isCallExpression(path.node)) return false;
 
   const {
@@ -22,8 +18,7 @@ export function isTestCode(path: NodePath<Node>, options?: OptionsType) {
   if (!isIdentifier(callee)) return false;
 
   const calleeName = callee.name;
-  const testFunctionNames =
-    options?.type === 'testCase' ? ['it', 'test'] : ['it', 'test', 'describe'];
+  const testFunctionNames = ['it', 'test', 'describe'];
 
   return (
     testFunctionNames.includes(calleeName) &&

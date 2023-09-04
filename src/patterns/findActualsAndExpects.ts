@@ -1,4 +1,11 @@
-import { Node, NodePath, types as t, traverse } from '@babel/core';
+import traverse, { Node, NodePath } from '@babel/traverse';
+import {
+  ExpressionStatement,
+  Expression,
+  isCallExpression,
+  isIdentifier,
+  isMemberExpression
+} from '@babel/types';
 
 export type ActualAndExpectsType = {
   actual: {
@@ -47,8 +54,8 @@ export function findActualsAndExpects(node: Node, code: string) {
 }
 
 function extractActualAndExpected(
-  path: NodePath<t.ExpressionStatement>,
-  expression: t.Expression
+  path: NodePath<ExpressionStatement>,
+  expression: Expression
 ) {
   const actual: LocType = {
     start: null,
@@ -59,17 +66,17 @@ function extractActualAndExpected(
     end: null
   };
 
-  if (t.isCallExpression(expression)) {
+  if (isCallExpression(expression)) {
     const { arguments: args, callee } = expression;
 
-    if (t.isIdentifier(callee, { name: 'expect' }) && args.length >= 2) {
+    if (isIdentifier(callee, { name: 'expect' }) && args.length >= 2) {
       actual.start = args[0]?.start ?? null;
       actual.end = args[0]?.end ?? null;
       expected.start = args[1]?.start ?? null;
       expected.end = args.at(-1)?.end ?? null;
     } else if (
-      t.isMemberExpression(callee) &&
-      t.isIdentifier(callee.object) &&
+      isMemberExpression(callee) &&
+      isIdentifier(callee.object) &&
       (callee.object.name === 'assert' || callee.object.name === 't')
     ) {
       if (args.length === 1) {
@@ -90,8 +97,8 @@ function extractActualAndExpected(
           const memberProperty = path.node.property;
 
           if (
-            t.isCallExpression(memberObject) &&
-            t.isIdentifier(memberObject.callee, { name: 'expect' })
+            isCallExpression(memberObject) &&
+            isIdentifier(memberObject.callee, { name: 'expect' })
           ) {
             actual.start = memberObject.arguments[0]?.start ?? null;
             actual.end =
@@ -100,10 +107,10 @@ function extractActualAndExpected(
             expected.start = actual.end && actual.end + 1;
             const expectedEnd = args.at(-1)?.end;
             expected.end = expectedEnd ? expectedEnd + 1 : null;
-          } else if (t.isIdentifier(memberProperty, { name: 'should' })) {
+          } else if (isIdentifier(memberProperty, { name: 'should' })) {
             actual.start = memberObject.start ?? null;
             actual.end = memberObject.end ?? null;
-            if (t.isMemberExpression(path.parent)) {
+            if (isMemberExpression(path.parent)) {
               expected.start = path.parent.property.start ?? null;
               const expectedEnd = args.at(-1)?.end;
               expected.end = expectedEnd ? expectedEnd + 1 : null;
