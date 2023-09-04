@@ -1,0 +1,9 @@
+{
+  "matches": [
+    { "src": "File [0,114]", "dest": "File [0,0]" },
+    { "src": "Program [0,114]", "dest": "Program [0,0]" }
+  ],
+  "actions": [
+    { "action": "delete-tree", "tree": "ExpressionStatement [0,114]" }
+  ]
+}

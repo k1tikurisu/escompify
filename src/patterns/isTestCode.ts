@@ -1,18 +1,25 @@
-import { NodePath, types as t } from '@babel/core';
+import { NodePath } from '@babel/traverse';
+import {
+  Node,
+  isFunctionExpression,
+  isArrowFunctionExpression,
+  isIdentifier,
+  isCallExpression
+} from '@babel/types';
 
 type OptionsType = {
   type: 'testCase';
 };
 
-export function isTestCode(path: NodePath<t.Node>, options?: OptionsType) {
-  if (!t.isCallExpression(path.node)) return false;
+export function isTestCode(path: NodePath<Node>, options?: OptionsType) {
+  if (!isCallExpression(path.node)) return false;
 
   const {
     callee,
     arguments: [arg1, arg2]
   } = path.node;
 
-  if (!t.isIdentifier(callee)) return false;
+  if (!isIdentifier(callee)) return false;
 
   const calleeName = callee.name;
   const testFunctionNames =
@@ -20,7 +27,17 @@ export function isTestCode(path: NodePath<t.Node>, options?: OptionsType) {
 
   return (
     testFunctionNames.includes(calleeName) &&
-    t.isStringLiteral(arg1) &&
-    (t.isFunctionExpression(arg2) || t.isArrowFunctionExpression(arg2))
+    isLiteral(arg1) &&
+    (isFunctionExpression(arg2) || isArrowFunctionExpression(arg2))
   );
+}
+
+// estree対応
+function isLiteral(node: Node | undefined) {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  if (node?.type === 'Literal') {
+    return true;
+  }
+  return false;
 }

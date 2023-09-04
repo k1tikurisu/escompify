@@ -1,5 +1,5 @@
 import { api } from '@/services/gumtree';
-import { Node } from '@babel/core';
+import { Node } from '@babel/types';
 
 export type ActionType = {
   type: 'match' | 'insert' | 'move' | 'update' | 'delete';
