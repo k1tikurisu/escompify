@@ -13,14 +13,16 @@
     "clean": "tsc --build --clean",
     "lint": "eslint --ext .js,.ts",
     "format": "prettier --write .",
-    "test": "jest",
+    "test": "jest --silent=false --verbose false",
     "runner:fose": "docker build -t k1tikurisu/fose --progress=plain ./runner-fose"
   },
   "prisma": {
     "schema": "/works/db/schema.prisma"
   },
   "dependencies": {
-    "@babel/core": "^7.22.11",
+    "@babel/parser": "^7.22.14",
+    "@babel/traverse": "^7.22.11",
+    "@babel/types": "^7.22.11",
     "@prisma/client": "^5.2.0",
     "axios": "^1.4.0",
     "dotenv": "^16.1.4",
