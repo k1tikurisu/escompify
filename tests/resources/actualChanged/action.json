@@ -4,6 +4,7 @@
     "action": "update-node",
     "src": {
       "path": [
+        "program",
         "body",
         0,
         "expression",
@@ -20,12 +21,17 @@
         "type": "Literal",
         "start": 35,
         "end": 58,
+        "loc": {
+          "start": { "line": 2, "column": 5 },
+          "end": { "line": 2, "column": 28 }
+        },
         "value": "adds 1 + 2 to equal 3",
         "raw": "'adds 1 + 2 to equal 3'"
       }
     },
     "dst": {
       "path": [
+        "program",
         "body",
         0,
         "expression",
@@ -42,6 +48,10 @@
         "type": "Literal",
         "start": 35,
         "end": 58,
+        "loc": {
+          "start": { "line": 2, "column": 5 },
+          "end": { "line": 2, "column": 28 }
+        },
         "value": "adds 2 + 3 to equal 5",
         "raw": "'adds 2 + 3 to equal 5'"
       }
@@ -52,6 +62,7 @@
     "action": "update-node",
     "src": {
       "path": [
+        "program",
         "body",
         0,
         "expression",
@@ -72,14 +83,19 @@
       ],
       "node": {
         "type": "Literal",
-        "start": 101,
-        "end": 102,
+        "start": 93,
+        "end": 94,
+        "loc": {
+          "start": { "line": 3, "column": 19 },
+          "end": { "line": 3, "column": 20 }
+        },
         "value": 3,
         "raw": "3"
       }
     },
     "dst": {
       "path": [
+        "program",
         "body",
         0,
         "expression",
@@ -100,55 +116,23 @@
       ],
       "node": {
         "type": "Literal",
-        "start": 101,
-        "end": 102,
+        "start": 93,
+        "end": 94,
+        "loc": {
+          "start": { "line": 3, "column": 19 },
+          "end": { "line": 3, "column": 20 }
+        },
         "value": 5,
         "raw": "5"
       }
     }
   },
   {
-    "type": "insert",
-    "action": "insert-node",
-    "src": {},
-    "dst": {
-      "path": [
-        "body",
-        0,
-        "expression",
-        "arguments",
-        1,
-        "body",
-        "body",
-        0,
-        "expression",
-        "arguments",
-        1,
-        "body",
-        "body",
-        0,
-        "expression",
-        "callee",
-        "object",
-        "arguments",
-        0,
-        "arguments",
-        1
-      ],
-      "node": {
-        "type": "Literal",
-        "start": 92,
-        "end": 93,
-        "value": 3,
-        "raw": "3"
-      }
-    }
-  },
-  {
-    "type": "delete",
-    "action": "delete-node",
+    "type": "update",
+    "action": "update-node",
     "src": {
       "path": [
+        "program",
         "body",
         0,
         "expression",
@@ -166,19 +150,55 @@
         "expression",
         "callee",
         "object",
-        "arguments",
-        0,
         "arguments",
         0
       ],
       "node": {
         "type": "Literal",
-        "start": 89,
-        "end": 90,
-        "value": 1,
-        "raw": "1"
+        "start": 85,
+        "end": 86,
+        "loc": {
+          "start": { "line": 3, "column": 11 },
+          "end": { "line": 3, "column": 12 }
+        },
+        "value": 3,
+        "raw": "3"
       }
     },
-    "dst": {}
+    "dst": {
+      "path": [
+        "program",
+        "body",
+        0,
+        "expression",
+        "arguments",
+        1,
+        "body",
+        "body",
+        0,
+        "expression",
+        "arguments",
+        1,
+        "body",
+        "body",
+        0,
+        "expression",
+        "callee",
+        "object",
+        "arguments",
+        0
+      ],
+      "node": {
+        "type": "Literal",
+        "start": 85,
+        "end": 86,
+        "loc": {
+          "start": { "line": 3, "column": 11 },
+          "end": { "line": 3, "column": 12 }
+        },
+        "value": 5,
+        "raw": "5"
+      }
+    }
   }
 ]

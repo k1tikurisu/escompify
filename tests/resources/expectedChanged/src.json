@@ -1,0 +1,303 @@
+{
+  "type": "File",
+  "start": 0,
+  "end": 114,
+  "loc": {
+    "start": { "line": 1, "column": 0 },
+    "end": { "line": 5, "column": 3 }
+  },
+  "errors": [],
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 114,
+    "loc": {
+      "start": { "line": 1, "column": 0 },
+      "end": { "line": 5, "column": 3 }
+    },
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start": 0,
+        "end": 114,
+        "loc": {
+          "start": { "line": 1, "column": 0 },
+          "end": { "line": 5, "column": 3 }
+        },
+        "expression": {
+          "type": "CallExpression",
+          "start": 0,
+          "end": 113,
+          "loc": {
+            "start": { "line": 1, "column": 0 },
+            "end": { "line": 5, "column": 2 }
+          },
+          "callee": {
+            "type": "Identifier",
+            "start": 0,
+            "end": 8,
+            "loc": {
+              "start": { "line": 1, "column": 0 },
+              "end": { "line": 1, "column": 8 },
+              "identifierName": "describe"
+            },
+            "name": "describe"
+          },
+          "arguments": [
+            {
+              "type": "Literal",
+              "start": 9,
+              "end": 14,
+              "loc": {
+                "start": { "line": 1, "column": 9 },
+                "end": { "line": 1, "column": 14 }
+              },
+              "value": "sum",
+              "raw": "'sum'"
+            },
+            {
+              "type": "FunctionExpression",
+              "start": 16,
+              "end": 112,
+              "loc": {
+                "start": { "line": 1, "column": 16 },
+                "end": { "line": 5, "column": 1 }
+              },
+              "id": null,
+              "generator": false,
+              "async": false,
+              "expression": false,
+              "params": [],
+              "body": {
+                "type": "BlockStatement",
+                "start": 28,
+                "end": 112,
+                "loc": {
+                  "start": { "line": 1, "column": 28 },
+                  "end": { "line": 5, "column": 1 }
+                },
+                "body": [
+                  {
+                    "type": "ExpressionStatement",
+                    "start": 32,
+                    "end": 110,
+                    "loc": {
+                      "start": { "line": 2, "column": 2 },
+                      "end": { "line": 4, "column": 5 }
+                    },
+                    "expression": {
+                      "type": "CallExpression",
+                      "start": 32,
+                      "end": 109,
+                      "loc": {
+                        "start": { "line": 2, "column": 2 },
+                        "end": { "line": 4, "column": 4 }
+                      },
+                      "callee": {
+                        "type": "Identifier",
+                        "start": 32,
+                        "end": 34,
+                        "loc": {
+                          "start": { "line": 2, "column": 2 },
+                          "end": { "line": 2, "column": 4 },
+                          "identifierName": "it"
+                        },
+                        "name": "it"
+                      },
+                      "arguments": [
+                        {
+                          "type": "Literal",
+                          "start": 35,
+                          "end": 58,
+                          "loc": {
+                            "start": { "line": 2, "column": 5 },
+                            "end": { "line": 2, "column": 28 }
+                          },
+                          "value": "adds 1 + 2 to equal 3",
+                          "raw": "'adds 1 + 2 to equal 3'"
+                        },
+                        {
+                          "type": "FunctionExpression",
+                          "start": 60,
+                          "end": 108,
+                          "loc": {
+                            "start": { "line": 2, "column": 30 },
+                            "end": { "line": 4, "column": 3 }
+                          },
+                          "id": null,
+                          "generator": false,
+                          "async": false,
+                          "expression": false,
+                          "params": [],
+                          "body": {
+                            "type": "BlockStatement",
+                            "start": 72,
+                            "end": 108,
+                            "loc": {
+                              "start": { "line": 2, "column": 42 },
+                              "end": { "line": 4, "column": 3 }
+                            },
+                            "body": [
+                              {
+                                "type": "ExpressionStatement",
+                                "start": 78,
+                                "end": 104,
+                                "loc": {
+                                  "start": { "line": 3, "column": 4 },
+                                  "end": { "line": 3, "column": 30 }
+                                },
+                                "expression": {
+                                  "type": "CallExpression",
+                                  "start": 78,
+                                  "end": 103,
+                                  "loc": {
+                                    "start": { "line": 3, "column": 4 },
+                                    "end": { "line": 3, "column": 29 }
+                                  },
+                                  "callee": {
+                                    "type": "MemberExpression",
+                                    "start": 78,
+                                    "end": 100,
+                                    "loc": {
+                                      "start": { "line": 3, "column": 4 },
+                                      "end": { "line": 3, "column": 26 }
+                                    },
+                                    "object": {
+                                      "type": "CallExpression",
+                                      "start": 78,
+                                      "end": 95,
+                                      "loc": {
+                                        "start": { "line": 3, "column": 4 },
+                                        "end": { "line": 3, "column": 21 }
+                                      },
+                                      "callee": {
+                                        "type": "Identifier",
+                                        "start": 78,
+                                        "end": 84,
+                                        "loc": {
+                                          "start": { "line": 3, "column": 4 },
+                                          "end": { "line": 3, "column": 10 },
+                                          "identifierName": "expect"
+                                        },
+                                        "name": "expect"
+                                      },
+                                      "arguments": [
+                                        {
+                                          "type": "CallExpression",
+                                          "start": 85,
+                                          "end": 94,
+                                          "loc": {
+                                            "start": {
+                                              "line": 3,
+                                              "column": 11
+                                            },
+                                            "end": { "line": 3, "column": 20 }
+                                          },
+                                          "callee": {
+                                            "type": "Identifier",
+                                            "start": 85,
+                                            "end": 88,
+                                            "loc": {
+                                              "start": {
+                                                "line": 3,
+                                                "column": 11
+                                              },
+                                              "end": {
+                                                "line": 3,
+                                                "column": 14
+                                              },
+                                              "identifierName": "sum"
+                                            },
+                                            "name": "sum"
+                                          },
+                                          "arguments": [
+                                            {
+                                              "type": "Literal",
+                                              "start": 89,
+                                              "end": 90,
+                                              "loc": {
+                                                "start": {
+                                                  "line": 3,
+                                                  "column": 15
+                                                },
+                                                "end": {
+                                                  "line": 3,
+                                                  "column": 16
+                                                }
+                                              },
+                                              "value": 1,
+                                              "raw": "1"
+                                            },
+                                            {
+                                              "type": "Literal",
+                                              "start": 92,
+                                              "end": 93,
+                                              "loc": {
+                                                "start": {
+                                                  "line": 3,
+                                                  "column": 18
+                                                },
+                                                "end": {
+                                                  "line": 3,
+                                                  "column": 19
+                                                }
+                                              },
+                                              "value": 2,
+                                              "raw": "2"
+                                            }
+                                          ],
+                                          "optional": false
+                                        }
+                                      ],
+                                      "optional": false
+                                    },
+                                    "computed": false,
+                                    "property": {
+                                      "type": "Identifier",
+                                      "start": 96,
+                                      "end": 100,
+                                      "loc": {
+                                        "start": { "line": 3, "column": 22 },
+                                        "end": { "line": 3, "column": 26 },
+                                        "identifierName": "toBe"
+                                      },
+                                      "name": "toBe"
+                                    },
+                                    "optional": false
+                                  },
+                                  "arguments": [
+                                    {
+                                      "type": "Literal",
+                                      "start": 101,
+                                      "end": 102,
+                                      "loc": {
+                                        "start": { "line": 3, "column": 27 },
+                                        "end": { "line": 3, "column": 28 }
+                                      },
+                                      "value": 3,
+                                      "raw": "3"
+                                    }
+                                  ],
+                                  "optional": false
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "optional": false
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "optional": false
+        }
+      }
+    ]
+  },
+  "comments": []
+}

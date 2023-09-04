@@ -1,0 +1,59 @@
+{
+  "matches": [
+    { "src": "Literal: 3 [85,86]", "dest": "Literal: 5 [85,86]" },
+    {
+      "src": "ExpressionStatement [32,102]",
+      "dest": "ExpressionStatement [32,102]"
+    },
+    { "src": "Identifier: toBe [88,92]", "dest": "Identifier: toBe [88,92]" },
+    { "src": "File [0,106]", "dest": "File [0,106]" },
+    { "src": "CallExpression [0,105]", "dest": "CallExpression [0,105]" },
+    {
+      "src": "Literal: 'adds 1 + 2 to equal 3' [35,58]",
+      "dest": "Literal: 'adds 2 + 3 to equal 5' [35,58]"
+    },
+    { "src": "Identifier: it [32,34]", "dest": "Identifier: it [32,34]" },
+    {
+      "src": "ExpressionStatement [0,106]",
+      "dest": "ExpressionStatement [0,106]"
+    },
+    { "src": "Program [0,106]", "dest": "Program [0,106]" },
+    { "src": "CallExpression [32,101]", "dest": "CallExpression [32,101]" },
+    { "src": "BlockStatement [72,100]", "dest": "BlockStatement [72,100]" },
+    { "src": "CallExpression [78,87]", "dest": "CallExpression [78,87]" },
+    {
+      "src": "FunctionExpression [60,100]",
+      "dest": "FunctionExpression [60,100]"
+    },
+    { "src": "MemberExpression [78,92]", "dest": "MemberExpression [78,92]" },
+    {
+      "src": "Identifier: expect [78,84]",
+      "dest": "Identifier: expect [78,84]"
+    },
+    { "src": "Literal: 3 [93,94]", "dest": "Literal: 5 [93,94]" },
+    {
+      "src": "Identifier: describe [0,8]",
+      "dest": "Identifier: describe [0,8]"
+    },
+    { "src": "Literal: 'sum' [9,14]", "dest": "Literal: 'sum' [9,14]" },
+    { "src": "BlockStatement [28,104]", "dest": "BlockStatement [28,104]" },
+    {
+      "src": "ExpressionStatement [78,96]",
+      "dest": "ExpressionStatement [78,96]"
+    },
+    {
+      "src": "FunctionExpression [16,104]",
+      "dest": "FunctionExpression [16,104]"
+    },
+    { "src": "CallExpression [78,95]", "dest": "CallExpression [78,95]" }
+  ],
+  "actions": [
+    {
+      "action": "update-node",
+      "tree": "Literal: 'adds 1 + 2 to equal 3' [35,58]",
+      "label": "'adds 2 + 3 to equal 5'"
+    },
+    { "action": "update-node", "tree": "Literal: 3 [93,94]", "label": "5" },
+    { "action": "update-node", "tree": "Literal: 3 [85,86]", "label": "5" }
+  ]
+}

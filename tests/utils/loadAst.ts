@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 import path from 'path';
-import { Node } from '@babel/core';
+import { Node } from '@babel/types';
 
 export const loadAst = (filepath: string): Node => {
   const content = readFileSync(

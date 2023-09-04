@@ -1,5 +1,5 @@
 export { isTestCodeDeleted } from '@/patterns/isTestCodeDeleted';
-export { isExpectedValueChanged } from '@/patterns/isExpectedValueChanged';
+export { isExpectedChanged } from '@/patterns/isExpectedChanged';
 export { isTestCodeExtension } from '@/patterns/isTestCodeExtension';
 export {
   findActualsAndExpects,

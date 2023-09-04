@@ -4,6 +4,7 @@
     "action": "update-node",
     "src": {
       "path": [
+        "program",
         "body",
         0,
         "expression",
@@ -20,12 +21,17 @@
         "type": "Literal",
         "start": 35,
         "end": 58,
+        "loc": {
+          "start": { "line": 2, "column": 5 },
+          "end": { "line": 2, "column": 28 }
+        },
         "value": "adds 1 + 2 to equal 3",
         "raw": "'adds 1 + 2 to equal 3'"
       }
     },
     "dst": {
       "path": [
+        "program",
         "body",
         0,
         "expression",
@@ -42,6 +48,10 @@
         "type": "Literal",
         "start": 35,
         "end": 58,
+        "loc": {
+          "start": { "line": 2, "column": 5 },
+          "end": { "line": 2, "column": 28 }
+        },
         "value": "adds 1 + 2 to equal 5",
         "raw": "'adds 1 + 2 to equal 5'"
       }
@@ -52,6 +62,7 @@
     "action": "update-node",
     "src": {
       "path": [
+        "program",
         "body",
         0,
         "expression",
@@ -74,12 +85,17 @@
         "type": "Literal",
         "start": 101,
         "end": 102,
+        "loc": {
+          "start": { "line": 3, "column": 27 },
+          "end": { "line": 3, "column": 28 }
+        },
         "value": 3,
         "raw": "3"
       }
     },
     "dst": {
       "path": [
+        "program",
         "body",
         0,
         "expression",
@@ -102,6 +118,10 @@
         "type": "Literal",
         "start": 101,
         "end": 102,
+        "loc": {
+          "start": { "line": 3, "column": 27 },
+          "end": { "line": 3, "column": 28 }
+        },
         "value": 5,
         "raw": "5"
       }

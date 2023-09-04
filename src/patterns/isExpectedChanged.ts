@@ -1,7 +1,7 @@
 import { ActionType } from '@/services/gumtree';
 import { ActualAndExpectsType } from '@/patterns';
 
-export function isExpectedValueChanged(
+export function isExpectedChanged(
   actions: ActionType[],
   actualAndExpectedList: ActualAndExpectsType[]
 ) {
