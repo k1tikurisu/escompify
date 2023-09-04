@@ -6,7 +6,8 @@ const config: Config.InitialOptions = {
   testMatch: ['**/*+(spec|test).+(ts|tsx|js)'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'
-  }
+  },
+  roots: ['<rootDir>/tests', '<rootDir>/src']
 };
 
 export default config;
