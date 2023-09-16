@@ -5,21 +5,22 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: daaiki/research:base
+    image: k1tikurisu/research:base
     container_name: base
-    command: bash -c "./scripts/ssh_to_brain.sh"
     working_dir: /works
     tty: true
+    ports:
+      - 4567:4567
     volumes:
       - type: bind
         source: .
         target: /works
       - type: bind
+        source: ./scripts/opt/jsparser
+        target: /opt/jsparser/jsparser
+      - type: bind
         source: /var/run/docker.sock
         target: /var/run/docker.sock
-      - type: bind
-        source: ~/.ssh
-        target: /root/.ssh
       - type: volume
         source: node_modules
         target: /works/node_modules

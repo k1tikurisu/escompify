@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+const acorn = require('acorn');
+const dashAst = require('dash-ast');
+const XmlWriter = require('xml-writer');
+const fs = require('fs');
+const code = fs.readFileSync(process.argv[2], 'utf8');
+const ast = acorn.parse(code, { ecmaVersion: 2020, sourceType: 'module' });
+const xml = new XmlWriter(true);
+xml.startDocument();
+
+dashAst(ast, {
+  enter: function (node, parent) {
+    xml.startElement('tree');
+    xml.writeAttribute('type', node.type);
+    xml.writeAttribute('pos', node.start);
+    xml.writeAttribute('length', node.end - node.start);
+
+    if (node.type == 'Identifier') xml.writeAttribute('label', node.name);
+    else if (node.type == 'Literal') xml.writeAttribute('label', node.raw);
+  },
+  leave: function (node, parent) {
+    xml.endElement();
+  }
+});
+
+xml.endDocument();
+console.log(xml.toString());
