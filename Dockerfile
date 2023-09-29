@@ -40,7 +40,8 @@ COPY --from=builder /opt/gumtree/dist/build/distributions/gumtree-3.1.0-SNAPSHOT
 COPY --from=builder /opt/jsparser /opt/jsparser
 COPY --from=builder /opt/sqlite3/sqlite-amalgamation-3430100/sqlite3 /usr/bin/sqlite3
 
-RUN npm --prefix /opt/jsparser/ install /opt/jsparser/ \
+RUN npm --prefix=/opt/jsparser/ install @babel/parser @babel/traverse xml-writer \
+  && npm --prefix=/opt/jsparser uninstall acorn dash-ast \
   && ln -s /opt/gumtree/dist/bin/gumtree /usr/bin/gumtree \ 
   && ln -s /opt/jsparser/jsparser /usr/bin/jsparser 
 
