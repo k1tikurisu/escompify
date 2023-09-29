@@ -6,3 +6,5 @@ lib
 tests/**/*.js
 __generated__
 runner-fose/repos
+scripts
+_tmptmptmp*
