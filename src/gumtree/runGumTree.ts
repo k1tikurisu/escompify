@@ -2,7 +2,7 @@ import path from 'path';
 import os from 'os';
 import fs from 'fs';
 import { randomUUID } from 'crypto';
-import { run } from '@/utils/run';
+import { run } from '@/utils';
 
 export type GumTreeResponseType = {
   matches: {
@@ -40,14 +40,11 @@ export async function runGumTree(
     fs.writeFileSync(srcPath, srcCode, 'utf-8');
     fs.writeFileSync(dstPath, dstCode, 'utf-8');
 
-    const output = await run(
-      `gumtree textdiff -x /usr/bin/tsparser -f JSON ${srcPath} ${dstPath}`
-    );
-    console.log(output);
+    const output = await run(`gumtree textdiff -f JSON ${srcPath} ${dstPath}`);
 
     return JSON.parse(output);
   } catch (error) {
-    console.error('Error at generateAction: ', error);
+    console.error('Error at runGumTree: ', error);
   } finally {
     if (fs.existsSync(tempDir)) {
       fs.rmSync(tempDir, { recursive: true, force: true });
