@@ -1,11 +1,8 @@
-import { readFileSync } from 'fs';
-import path from 'path';
-import { ActionType } from '../../src/services/gumtree';
+import { generateActions } from '../../src/gumtree';
 
-export const loadAction = (filepath: string): ActionType[] => {
-  const content = readFileSync(
-    path.resolve(__dirname, `/works/tests/resources/${filepath}/action.json`),
-    'utf-8'
-  );
-  return JSON.parse(content);
-};
+export async function loadAction(srcCode: string, dstCode: string) {
+  const output = await generateActions(srcCode, dstCode);
+  console.log(output);
+
+  return output ?? [];
+}

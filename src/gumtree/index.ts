@@ -1,3 +1,3 @@
 export { runGumTree } from '@/gumtree/runGumTree';
-export { generateActions } from '@/gumtree/generateActions';
+export { generateActions, type ActionType } from '@/gumtree/generateActions';
 export { getTree } from '@/gumtree/getTree';
