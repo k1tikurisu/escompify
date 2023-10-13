@@ -1,4 +1,4 @@
-import { loadAction } from '../utils';
+import { generateActions } from '@/gumtree';
 import { isTestCodeDeleted } from '../../src/patterns';
 
 describe('isTestCodeDeleted', () => {
@@ -12,8 +12,10 @@ describe('isTestCodeDeleted', () => {
     `;
     const dstCode = ``;
 
-    const actions = await loadAction(srcCode, dstCode);
-    const isTestDeleted = actions.some((action) => isTestCodeDeleted(action));
+    const actions = await generateActions(srcCode, dstCode);
+    const isTestDeleted = (actions ?? []).some((action) =>
+      isTestCodeDeleted(action)
+    );
 
     expect(isTestDeleted).toBe(true);
   });
@@ -37,8 +39,10 @@ describe('isTestCodeDeleted', () => {
     });
     `;
 
-    const actions = await loadAction(srcCode, dstCode);
-    const isTestDeleted = actions.some((action) => isTestCodeDeleted(action));
+    const actions = await generateActions(srcCode, dstCode);
+    const isTestDeleted = (actions ?? []).some((action) =>
+      isTestCodeDeleted(action)
+    );
 
     expect(isTestDeleted).toBe(true);
   });
@@ -59,8 +63,10 @@ describe('isTestCodeDeleted', () => {
     });
     `;
 
-    const actions = await loadAction(srcCode, dstCode);
-    const isTestDeleted = actions.some((action) => isTestCodeDeleted(action));
+    const actions = await generateActions(srcCode, dstCode);
+    const isTestDeleted = (actions ?? []).some((action) =>
+      isTestCodeDeleted(action)
+    );
 
     expect(isTestDeleted).toBe(false);
   });
