@@ -10,12 +10,7 @@ async function main() {
     result.isInserted || result.isDeleted || result.isExpectChanged;
 
   console.log(
-    `
-      isBeraking: ${isBreaking}
-      isInserted: ${result.isInserted}
-      isDeleted: ${result.isDeleted}
-      isExpectChanged: ${result.isExpectChanged}
-    `
+    `isBeraking: ${isBreaking}\nisInserted: ${result.isInserted}\nisDeleted: ${result.isDeleted}\nisExpectChanged: ${result.isExpectChanged}`
   );
 }
 
