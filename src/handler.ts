@@ -1,5 +1,4 @@
 import { MyArgs } from '@/cli';
-import { getAction, getAst, postDiff } from '@/services/gumtree/';
 import simpleGit from 'simple-git';
 import db from '@/libs/prisma';
 import { getChangedTestFilePaths, mergeFileIfExists } from '@/utils/files';
