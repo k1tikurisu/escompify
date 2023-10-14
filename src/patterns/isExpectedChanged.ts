@@ -1,4 +1,4 @@
-import { ActionType } from '@/services/gumtree';
+import { ActionType } from '@/gumtree';
 import { ActualAndExpectsType } from '@/patterns';
 
 export function isExpectedChanged(
@@ -9,16 +9,15 @@ export function isExpectedChanged(
   const changeActualSet = new Set<string>();
 
   for (const action of actions) {
-    if (
-      action.action !== 'update-node' ||
-      !action.src.node.start ||
-      !action.src.node.end
-    ) {
+    if (action.type !== 'update-node' || !action.src.path) {
       continue;
     }
 
-    const start = action.src.node.start;
-    const end = action.src.node.end;
+    const { start, end } = action.src.path.node;
+
+    if (!start || !end) {
+      continue;
+    }
 
     for (const { actual, expected } of actualAndExpectedList) {
       if (actual.start <= start && end <= actual.end) {

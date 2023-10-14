@@ -1,22 +1,51 @@
-import { loadAction, loadAst, loadCode } from '../utils';
+import { generateActions } from '@/gumtree';
 import { findActualsAndExpects, isExpectedChanged } from '../../src/patterns';
+import { parseWithOptions } from '@/utils';
 
 describe('isExpectedChanged', () => {
   it('should return true for a changed expected', async () => {
-    const actions = loadAction('expectedChanged');
-    const ast = loadAst('expectedChanged/src.json');
-    const code = loadCode('expectedChanged/src.js');
-    const actualsAndExpects = findActualsAndExpects(ast, code);
+    const srcCode = `
+      describe('sum', function () {
+        it('adds 1 + 2 to equal 3', function () {
+          expect(sum(1, 2)).toBe(3);
+        });
+      });
+    `;
+    const dstCode = `
+    describe('sum', function () {
+      it('adds 1 + 2 to equal 5', function () {
+        expect(sum(1, 2)).toBe(5);
+      });
+    });
+    `;
 
-    expect(isExpectedChanged(actions, actualsAndExpects)).toBe(true);
+    const actions = await generateActions(srcCode, dstCode);
+    const ast = parseWithOptions(srcCode);
+    const actualsAndExpects = findActualsAndExpects(ast, srcCode);
+
+    expect(isExpectedChanged(actions ?? [], actualsAndExpects)).toBe(true);
   });
 
   it('should return false when both the expected and actual are changed', async () => {
-    const actions = loadAction('actualChanged');
-    const ast = loadAst('actualChanged/src.json');
-    const code = loadCode('actualChanged/src.js');
-    const actualsAndExpects = findActualsAndExpects(ast, code);
+    const srcCode = `
+    describe('sum', function () {
+      it('adds 1 + 2 to equal 3', function () {
+        expect(3).toBe(3);
+      });
+    });
+    `;
+    const dstCode = `
+    describe('sum', function () {
+      it('adds 2 + 3 to equal 5', function () {
+        expect(5).toBe(5);
+      });
+    });
+    `;
 
-    expect(isExpectedChanged(actions, actualsAndExpects)).toBe(false);
+    const actions = await generateActions(srcCode, dstCode);
+    const ast = parseWithOptions(srcCode);
+    const actualsAndExpects = findActualsAndExpects(ast, srcCode);
+
+    expect(isExpectedChanged(actions ?? [], actualsAndExpects)).toBe(false);
   });
 });
