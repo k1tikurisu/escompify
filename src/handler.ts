@@ -1,107 +1,70 @@
 import { MyArgs } from '@/cli';
 import simpleGit from 'simple-git';
-import db from '@/libs/prisma';
 import { getChangedTestFilePaths, mergeFileIfExists } from '@/utils/files';
+import { generateActions } from './gumtree';
+import { parseWithOptions } from './utils';
+import {
+  findActualsAndExpects,
+  findTestCodeRange,
+  isExpectedChanged,
+  isTestCodeDeleted,
+  isTestInsertedWithinTest
+} from '@/patterns';
 
 export async function handler(argv: MyArgs) {
   const { path, srcHash, dstHash } = argv;
 
   const data = await getGumTreeData(path, srcHash, dstHash);
-  if (!data) return null;
 
-  return data;
+  const result = {
+    path: data.path,
+    srcHash: data.srcHash,
+    dstHash: data.dstHash,
+    isDeleted: false,
+    isInserted: false,
+    isExpectChanged: false
+  };
+
+  for (const action of data.actions) {
+    if (isTestCodeDeleted(action)) {
+      result.isDeleted = true;
+    }
+  }
+
+  const testCodeRanges = findTestCodeRange(data.dstAst);
+  if (isTestInsertedWithinTest(data.actions, testCodeRanges)) {
+    result.isInserted = true;
+  }
+
+  const actualAndExpected = findActualsAndExpects(data.srcAst, data.srcCode);
+  if (isExpectedChanged(data.actions, actualAndExpected)) {
+    result.isExpectChanged = true;
+  }
+
+  return result;
 }
 
 async function getGumTreeData(path: string, srcHash: string, dstHash: string) {
-  try {
-    const data = await db.gumTree.findUnique({
-      where: {
-        key: `${path}:${srcHash}:${dstHash}`,
-        status: {
-          in: ['success', 'matched']
-        }
-      }
-    });
-
-    if (data) {
-      return data;
-    }
-
-    const gumTreeData = await processGumTreeData(path, srcHash, dstHash);
-
-    return gumTreeData;
-  } catch {
-    return null;
-  }
-}
-
-async function processGumTreeData(
-  path: string,
-  srcHash: string,
-  dstHash: string
-) {
   const { srcCode, dstCode } = await createSrcAndDstCode(
     path,
     srcHash,
     dstHash
   );
 
-  // 外れ値を除外
-  if (new Blob([srcCode, dstCode]).size >= 165956) {
-    await db.gumTree.create({
-      data: {
-        key: `${path}:${srcHash}:${dstHash}`,
-        serverId: null,
-        status: 'exceeded',
-        actions: JSON.stringify([]),
-        srcAst: JSON.stringify({}),
-        dstAst: JSON.stringify({})
-      }
-    });
-    return null;
-  }
-
-  const isMatched = !srcCode && !dstCode;
-
-  const res = await postDiff({
-    body: { src_code: srcCode, dst_code: dstCode }
-  });
-
-  const id = res?.data.diff_id;
-
-  if (!id) {
-    await db.gumTree.create({
-      data: {
-        key: `${path}:${srcHash}:${dstHash}`,
-        serverId: null,
-        status: 'error',
-        actions: JSON.stringify([]),
-        srcAst: JSON.stringify({}),
-        dstAst: JSON.stringify({})
-      }
-    });
-
-    return null;
-  }
-
-  const [actions, srcAst, dstAst] = await Promise.all([
-    getAction(id),
-    getAst({ id, type: 'src' }),
-    getAst({ id, type: 'dst' })
-  ]);
+  const actions = await generateActions(srcCode, dstCode);
+  const srcAst = parseWithOptions(srcCode);
+  const dstAst = parseWithOptions(dstCode);
 
   const gumTreeData = {
-    serverId: id,
-    key: `${path}:${srcHash}:${dstHash}`,
-    actions: JSON.stringify(actions?.data ?? []),
-    srcAst: JSON.stringify(srcAst?.data ?? {}),
-    dstAst: JSON.stringify(dstAst?.data ?? {}),
-    status: isMatched ? 'matched' : res.data.status
+    path,
+    srcCode,
+    dstCode,
+    srcHash,
+    dstHash,
+    actions: actions ?? [],
+    srcAst,
+    dstAst
   };
-
-  await db.gumTree.create({
-    data: gumTreeData
-  });
 
   return gumTreeData;
 }
