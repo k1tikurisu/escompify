@@ -15,7 +15,7 @@ async function main() {
     result: []
   };
 
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < datasets.length; i++) {
     const dataset = datasets[i];
 
     result.result[i] = {
@@ -83,7 +83,7 @@ type EscompifyType = {
   isInserted: boolean;
   isDeleted: boolean;
   isExpectChanged: boolean;
-  hasPotentialBreakingChange: boolean;
+  hasPotentialBreaking: boolean;
 };
 
 type Revision = {
