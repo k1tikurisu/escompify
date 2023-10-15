@@ -14,7 +14,7 @@
     "lint": "eslint --ext .js,.ts",
     "format": "prettier --write .",
     "test": "jest --silent=false --verbose false",
-    "runner:fose": "docker build -t k1tikurisu/fose --progress=plain ./runner-fose"
+    "runner:fose": "chmod +x ./runners/fose2023/run.sh && ./runners/fose2023/run.sh"
   },
   "dependencies": {
     "@babel/parser": "^7.22.14",

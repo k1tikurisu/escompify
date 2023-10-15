@@ -6,12 +6,17 @@ async function main() {
 
   const result = await handler(argv);
 
-  const isBreaking =
+  const hasPotentialBreaking =
     result.isInserted || result.isDeleted || result.isExpectChanged;
 
-  console.log(
-    `isBeraking: ${isBreaking}\nisInserted: ${result.isInserted}\nisDeleted: ${result.isDeleted}\nisExpectChanged: ${result.isExpectChanged}`
-  );
+  const output = {
+    hasPotentialBreaking,
+    isInserted: result.isInserted,
+    isDeleted: result.isDeleted,
+    isExpectChanged: result.isExpectChanged
+  };
+
+  console.log(JSON.stringify(output));
 }
 
 main().catch((e) => {
