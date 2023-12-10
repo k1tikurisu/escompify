@@ -1,5 +1,5 @@
 import { generateActions } from '@/gumtree';
-import { findActualsAndExpects, isExpectedChanged } from '../../src/patterns';
+import { findActualAndExpects, isExpectedChanged } from '../../src/patterns';
 import { parseWithOptions } from '@/utils';
 
 describe('isExpectedChanged', () => {
@@ -21,9 +21,9 @@ describe('isExpectedChanged', () => {
 
     const actions = await generateActions(srcCode, dstCode);
     const ast = parseWithOptions(srcCode);
-    const actualsAndExpects = findActualsAndExpects(ast, srcCode);
+    const actualAndExpects = findActualAndExpects(ast, srcCode);
 
-    expect(isExpectedChanged(actions ?? [], actualsAndExpects)).toBe(true);
+    expect(isExpectedChanged(actions ?? [], actualAndExpects)).toBe(true);
   });
 
   it('should return false when both the expected and actual are changed', async () => {
@@ -44,8 +44,8 @@ describe('isExpectedChanged', () => {
 
     const actions = await generateActions(srcCode, dstCode);
     const ast = parseWithOptions(srcCode);
-    const actualsAndExpects = findActualsAndExpects(ast, srcCode);
+    const actualAndExpects = findActualAndExpects(ast, srcCode);
 
-    expect(isExpectedChanged(actions ?? [], actualsAndExpects)).toBe(false);
+    expect(isExpectedChanged(actions ?? [], actualAndExpects)).toBe(false);
   });
 });

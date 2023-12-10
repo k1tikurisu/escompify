@@ -6,7 +6,7 @@ export { isTestCodeDeleted } from '@/patterns/isTestCodeDeleted';
 export { isExpectedChanged } from '@/patterns/isExpectedChanged';
 export { isTestInsertedWithinTest } from '@/patterns/isTestInsertedWithinTest';
 export {
-  findActualsAndExpects,
+  findActualAndExpects,
   type ActualAndExpectsType
-} from '@/patterns/findActualsAndExpects';
+} from '@/patterns/findActualAndExpects';
 export { isTestCode } from '@/patterns/isTestCode';
