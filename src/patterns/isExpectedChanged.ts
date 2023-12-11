@@ -36,5 +36,5 @@ export function isExpectedChanged(
     }
   }
 
-  return changeExpectedSet.size > 0;
+  return changeExpectedSet.size > 0 || changeActualSet.size > 0;
 }
