@@ -4,7 +4,7 @@ import { getChangedTestFilePaths, mergeFileIfExists } from '@/utils/files';
 import { generateActions } from './gumtree';
 import { parseWithOptions } from './utils';
 import {
-  findActualsAndExpects,
+  findActualAndExpects,
   findTestCodeRange,
   isExpectedChanged,
   isTestCodeDeleted,
@@ -36,7 +36,7 @@ export async function handler(argv: MyArgs) {
     result.isInserted = true;
   }
 
-  const actualAndExpected = findActualsAndExpects(data.srcAst, data.srcCode);
+  const actualAndExpected = findActualAndExpects(data.srcAst, data.srcCode);
   if (isExpectedChanged(data.actions, actualAndExpected)) {
     result.isExpectChanged = true;
   }
