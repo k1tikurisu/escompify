@@ -95,8 +95,7 @@ async function createSrcAndDstCode(
     await git.checkout(currentBranchName);
 
     return { srcCode, dstCode, srcAst, dstAst };
-  } catch {
+  } finally {
     await git.checkout(currentBranchName);
-    throw Error('Error at createSrcAndDstCode');
   }
 }
