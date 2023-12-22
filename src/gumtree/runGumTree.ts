@@ -26,8 +26,8 @@ type ActionType =
   | `delete-${'node' | 'tree'}`;
 
 export async function runGumTree(
-  srcCode: string,
-  dstCode: string
+  srcAst: string,
+  dstAst: string
 ): Promise<GumTreeResponseType | undefined> {
   const id = randomUUID();
   const tempDir = path.join(os.tmpdir(), id);
@@ -37,8 +37,8 @@ export async function runGumTree(
 
     const srcPath = path.join(tempDir, `src.js`);
     const dstPath = path.join(tempDir, `dst.js`);
-    fs.writeFileSync(srcPath, srcCode, 'utf-8');
-    fs.writeFileSync(dstPath, dstCode, 'utf-8');
+    fs.writeFileSync(srcPath, srcAst, 'utf-8');
+    fs.writeFileSync(dstPath, dstAst, 'utf-8');
 
     const output = await run(`gumtree textdiff -f JSON ${srcPath} ${dstPath}`);
 

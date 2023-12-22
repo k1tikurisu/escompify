@@ -1,8 +1,7 @@
 import { MyArgs } from '@/cli';
 import simpleGit from 'simple-git';
-import { getChangedTestFilePaths, mergeFileIfExists } from '@/utils/files';
+import { parseFilesIfExists, getChangedTestFilePaths } from '@/utils/files';
 import { generateActions } from './gumtree';
-import { parseWithOptions } from './utils';
 import {
   findActualAndExpects,
   findTestCodeRange,
@@ -45,15 +44,13 @@ export async function handler(argv: MyArgs) {
 }
 
 async function getGumTreeData(path: string, srcHash: string, dstHash: string) {
-  const { srcCode, dstCode } = await createSrcAndDstCode(
+  const { srcCode, dstCode, srcAst, dstAst } = await createSrcAndDstCode(
     path,
     srcHash,
     dstHash
   );
 
-  const actions = await generateActions(srcCode, dstCode);
-  const srcAst = parseWithOptions(srcCode);
-  const dstAst = parseWithOptions(dstCode);
+  const actions = await generateActions(srcAst, dstAst);
 
   const gumTreeData = {
     path,
@@ -87,17 +84,19 @@ async function createSrcAndDstCode(
     );
 
     await git.checkout(dstHash);
-    const dstCode = mergeFileIfExists(changedTestFilePaths);
+    const { ast: dstAst, code: dstCode } =
+      parseFilesIfExists(changedTestFilePaths);
 
     await git.checkout(srcHash);
-    const srcCode = mergeFileIfExists(changedTestFilePaths);
+    const { ast: srcAst, code: srcCode } =
+      parseFilesIfExists(changedTestFilePaths);
 
     // clean up
     await git.checkout(currentBranchName);
 
-    return { srcCode, dstCode };
+    return { srcCode, dstCode, srcAst, dstAst };
   } catch {
     await git.checkout(currentBranchName);
-    return { srcCode: '', dstCode: '' };
+    throw Error('Error at createSrcAndDstCode');
   }
 }

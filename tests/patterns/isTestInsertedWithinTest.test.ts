@@ -25,7 +25,10 @@ describe('isTestCodeInserted', () => {
     });
     `;
 
-    const actions = await generateActions(srcCode, dstCode);
+    const srcAst = parseWithOptions(srcCode);
+    const dstAst = parseWithOptions(dstCode);
+
+    const actions = await generateActions(srcAst, dstAst);
     const ast = parseWithOptions(dstCode);
     const testCodeRanges = findTestCodeRange(ast);
 
@@ -42,7 +45,10 @@ describe('isTestCodeInserted', () => {
     });
     `;
 
-    const actions = await generateActions(srcCode, dstCode);
+    const srcAst = parseWithOptions(srcCode);
+    const dstAst = parseWithOptions(dstCode);
+
+    const actions = await generateActions(srcAst, dstAst);
     const ast = parseWithOptions(dstCode);
     const testCodeRanges = findTestCodeRange(ast);
 

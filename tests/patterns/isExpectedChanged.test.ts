@@ -19,9 +19,10 @@ describe('isExpectedChanged', () => {
     });
     `;
 
-    const actions = await generateActions(srcCode, dstCode);
-    const ast = parseWithOptions(srcCode);
-    const actualAndExpects = findActualAndExpects(ast, srcCode);
+    const srcAst = parseWithOptions(srcCode);
+    const dstAst = parseWithOptions(dstCode);
+    const actions = await generateActions(srcAst, dstAst);
+    const actualAndExpects = findActualAndExpects(srcAst, srcCode);
 
     expect(isExpectedChanged(actions ?? [], actualAndExpects)).toBe(true);
   });
@@ -42,9 +43,10 @@ describe('isExpectedChanged', () => {
     });
     `;
 
-    const actions = await generateActions(srcCode, dstCode);
-    const ast = parseWithOptions(srcCode);
-    const actualAndExpects = findActualAndExpects(ast, srcCode);
+    const srcAst = parseWithOptions(srcCode);
+    const dstAst = parseWithOptions(dstCode);
+    const actions = await generateActions(srcAst, dstAst);
+    const actualAndExpects = findActualAndExpects(srcAst, srcCode);
 
     expect(isExpectedChanged(actions ?? [], actualAndExpects)).toBe(false);
   });

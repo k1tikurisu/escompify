@@ -1,23 +1,8 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const parser = require('@babel/parser');
 const traverse = require('@babel/traverse').default;
 const XmlWriter = require('xml-writer');
-
-const parseCode = (code) => {
-  try {
-    return parser.parse(code, {
-      sourceType: 'module',
-      plugins: ['estree']
-    })
-  } catch {
-    return parser.parse(code, {
-      sourceType: 'module',
-      plugins: ['estree', 'typescript']
-    })
-  }
-};
 
 const generateXmlFromAst = (ast) => {
   const xml = new XmlWriter(true);
@@ -49,9 +34,8 @@ const main = () => {
     process.exit(1);
   }
 
-  const code = fs.readFileSync(filePath, 'utf8');
-  const ast = parseCode(code);
-  const xmlString = generateXmlFromAst(ast);
+  const ast = fs.readFileSync(filePath, 'utf8');
+  const xmlString = generateXmlFromAst(JSON.parse(ast));
   console.log(xmlString);
 };
 

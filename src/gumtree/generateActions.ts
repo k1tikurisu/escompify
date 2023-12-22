@@ -1,8 +1,6 @@
 import { runGumTree, getTree } from '@/gumtree';
-import { parseWithOptions } from '@/utils';
 import { NodePath } from '@babel/traverse';
-import { ParseResult } from '@babel/parser';
-import { File } from '@babel/types';
+import { Node } from '@babel/types';
 
 export type ActionType = {
   type:
@@ -17,16 +15,16 @@ export type ActionType = {
 
 type ActionDetailsType = {
   path: NodePath | null | undefined;
-  ast: ParseResult<File>;
+  ast: Node;
 };
 
-export async function generateActions(srcCode: string, dstCode: string) {
+export async function generateActions(srcAst: Node, dstAst: Node) {
   try {
-    const output = await runGumTree(srcCode, dstCode);
+    const output = await runGumTree(
+      JSON.stringify(srcAst),
+      JSON.stringify(dstAst)
+    );
     if (!output) throw Error('Error at runGumTree');
-
-    const srcAst = parseWithOptions(srcCode);
-    const dstAst = parseWithOptions(dstCode);
 
     if (output.actions.length === 0) return [];
 

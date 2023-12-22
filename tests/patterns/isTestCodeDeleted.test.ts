@@ -1,5 +1,6 @@
 import { generateActions } from '@/gumtree';
 import { isTestCodeDeleted } from '../../src/patterns';
+import { parseWithOptions } from '@/utils';
 
 describe('isTestCodeDeleted', () => {
   it('should return true for a deleted test suite', async () => {
@@ -12,7 +13,10 @@ describe('isTestCodeDeleted', () => {
     `;
     const dstCode = ``;
 
-    const actions = await generateActions(srcCode, dstCode);
+    const srcAst = parseWithOptions(srcCode);
+    const dstAst = parseWithOptions(dstCode);
+
+    const actions = await generateActions(srcAst, dstAst);
     const isTestDeleted = (actions ?? []).some((action) =>
       isTestCodeDeleted(action)
     );
@@ -39,7 +43,10 @@ describe('isTestCodeDeleted', () => {
     });
     `;
 
-    const actions = await generateActions(srcCode, dstCode);
+    const srcAst = parseWithOptions(srcCode);
+    const dstAst = parseWithOptions(dstCode);
+
+    const actions = await generateActions(srcAst, dstAst);
     const isTestDeleted = (actions ?? []).some((action) =>
       isTestCodeDeleted(action)
     );
@@ -63,7 +70,10 @@ describe('isTestCodeDeleted', () => {
     });
     `;
 
-    const actions = await generateActions(srcCode, dstCode);
+    const srcAst = parseWithOptions(srcCode);
+    const dstAst = parseWithOptions(dstCode);
+
+    const actions = await generateActions(srcAst, dstAst);
     const isTestDeleted = (actions ?? []).some((action) =>
       isTestCodeDeleted(action)
     );
