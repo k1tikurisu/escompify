@@ -13,7 +13,6 @@ STEPS=(
 CMDS=(
   'git clone https://github.com/Wakayama-SocSEL/Matsuda.git /tmp/Matsuda'
   'cp -rp /tmp/Matsuda/output/ /works/datasets/'
-  'cp /works/datasets/proposal_result.json /works/runner-fose/proposal_result.json'
   'rm -rf /tmp/Matsuda'
 )
 

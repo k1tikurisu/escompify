@@ -10,8 +10,6 @@ FRAME=("⠋" "⠙" "⠹" "⠸" "⠼" "⠴" "⠦" "⠧" "⠇" "⠏")
 start() {
   local step=0
 
-  tput civis -- invisible
-
   while [ "$step" -lt "${#CMDS[@]}" ]; do
     ${CMDS[$step]} > /dev/null 2>&1 & pid=$!
 
@@ -27,6 +25,4 @@ start() {
     echo -ne "\\r[✔] $((step + 1))/${#CMDS[@]} ${STEPS[$step]}\\n"
     step=$((step + 1))
   done
-
-  tput cnorm -- normal
 }
