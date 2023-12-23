@@ -72,10 +72,11 @@ async function createSrcAndDstCode(
   dstHash: string
 ) {
   const git = simpleGit(path);
+
   const currentBranchName = (await git.branch(['--contains'])).current;
 
   try {
-    await git.checkout(currentBranchName);
+    await git.checkout(['-f', currentBranchName]);
 
     const changedTestFilePaths = await getChangedTestFilePaths(
       path,
@@ -83,19 +84,20 @@ async function createSrcAndDstCode(
       dstHash
     );
 
-    await git.checkout(dstHash);
+    await git.checkout(['-f', dstHash]);
     const { ast: dstAst, code: dstCode } =
       parseFilesIfExists(changedTestFilePaths);
 
-    await git.checkout(srcHash);
+    // clean up
+    await git.checkout(['-f', currentBranchName]);
+
+    await git.checkout(['-f', srcHash]);
     const { ast: srcAst, code: srcCode } =
       parseFilesIfExists(changedTestFilePaths);
 
-    // clean up
-    await git.checkout(currentBranchName);
-
     return { srcCode, dstCode, srcAst, dstAst };
   } finally {
-    await git.checkout(currentBranchName);
+    // clean up
+    await git.checkout(['-f', currentBranchName]);
   }
 }
