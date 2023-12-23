@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { existsSync, readFileSync, writeFileSync } from 'fs';
 import { run } from '../../src/utils/run';
 
 async function main() {
@@ -37,7 +37,22 @@ async function main() {
       matsudaPrediction: dataset.isBreaking
     };
 
+    console.log(
+      `Start ${i + 1}/${datasets.length} : -p ${result.result[i].path} -s ${
+        result.result[i].srcHash
+      } -d ${result.result[i].dstHash}`
+    );
+
     try {
+      if (!existsSync(result.result[i].path)) {
+        result.result[i] = {
+          ...result.result[i],
+          stats: null,
+          error: 'no-repo'
+        };
+        continue;
+      }
+
       const output = readJson<EscompifyType>(
         await run(
           `escompify -p /works/repos/${dataset.nameWithOwner} -s ${dataset.prev.hash} -d ${dataset.updated.hash}`
@@ -47,16 +62,20 @@ async function main() {
       result.result[i] = {
         ...result.result[i],
         stats: output,
-        error: false
+        error: null
       };
     } catch (e) {
       result.errors++;
       result.result[i] = {
         ...result.result[i],
         stats: null,
-        error: true
+        error: 'unexpected-error'
       };
       console.error(e);
+    } finally {
+      console.log(
+        `Done: -p ${result.result[i].path} -s ${result.result[i].srcHash} -d ${result.result[i].dstHash}`
+      );
     }
   }
 
@@ -150,7 +169,7 @@ type ThesisResult = {
     dstHash: string;
     matsudaPrediction: boolean;
     isBreaking: boolean;
-    error: boolean;
+    error: null | 'no-repo' | 'unexpected-error';
     stats: EscompifyType | null;
   }>;
 };
