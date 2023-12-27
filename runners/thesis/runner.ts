@@ -178,6 +178,7 @@ type EscompifyType = {
   isInserted: boolean;
   isDeleted: boolean;
   isExpectChanged: boolean;
+  isAssertionInserted: boolean;
   hasPotentialBreaking: boolean;
 };
 

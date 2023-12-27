@@ -5,6 +5,7 @@ export {
 export { isTestCodeDeleted } from '@/patterns/isTestCodeDeleted';
 export { isExpectedChanged } from '@/patterns/isExpectedChanged';
 export { isTestInsertedWithinTest } from '@/patterns/isTestInsertedWithinTest';
+export { isAssertionInserted } from '@/patterns/isAssertionInserted';
 export {
   findActualAndExpects,
   type ActualAndExpectsType

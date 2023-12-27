@@ -5,6 +5,7 @@ import { generateActions } from './gumtree';
 import {
   findActualAndExpects,
   findTestCodeRange,
+  isAssertionInserted,
   isExpectedChanged,
   isTestCodeDeleted,
   isTestInsertedWithinTest
@@ -21,12 +22,17 @@ export async function handler(argv: MyArgs) {
     dstHash: data.dstHash,
     isDeleted: false,
     isInserted: false,
-    isExpectChanged: false
+    isExpectChanged: false,
+    isAssertionInserted: false
   };
 
   for (const action of data.actions) {
     if (isTestCodeDeleted(action)) {
       result.isDeleted = true;
+    }
+
+    if (isAssertionInserted(action)) {
+      result.isAssertionInserted = true;
     }
   }
 
