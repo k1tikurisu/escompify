@@ -1,9 +1,4 @@
-import {
-  Expression,
-  isCallExpression,
-  isIdentifier,
-  isMemberExpression
-} from '@babel/types';
+import { Expression, isCallExpression, isIdentifier, isMemberExpression } from '@babel/types';
 
 type LocType = {
   start: number | null;
@@ -21,11 +16,11 @@ type LocType = {
 export function extractAssertPattern(expression: Expression) {
   const actual: LocType = {
     start: null,
-    end: null
+    end: null,
   };
   const expected: LocType = {
     start: null,
-    end: null
+    end: null,
   };
 
   if (isCallExpression(expression)) {

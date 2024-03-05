@@ -1,9 +1,0 @@
-node_modules
-.yarn
-README.md
-datasets
-lib
-tests/**/*.js
-__generated__
-runner-fose/repos
-repos

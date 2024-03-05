@@ -1,6 +1,6 @@
 import { generateActions } from '@/gumtree';
-import { findActualAndExpects, isExpectedChanged } from '../../src/patterns';
 import { parseWithOptions } from '@/utils';
+import { findActualAndExpects, isExpectedChanged } from '../../src/patterns';
 
 describe('isExpectedChanged', () => {
   it('should return true for a changed expected', async () => {

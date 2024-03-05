@@ -4,7 +4,7 @@ import {
   ExpressionStatement,
   isCallExpression,
   isIdentifier,
-  isMemberExpression
+  isMemberExpression,
 } from '@babel/types';
 
 type LocType = {
@@ -16,17 +16,14 @@ type LocType = {
  * 下記のパターンの入力値と期待値を抽出する
  * sum(1,2).should.be.a('number').equal(3); // 入力にshouldプロパティを生やして，メソッドチェーンで振る舞いを記述する
  */
-export function extractShouldPattern(
-  path: NodePath<ExpressionStatement>,
-  expression: Expression
-) {
+export function extractShouldPattern(path: NodePath<ExpressionStatement>, expression: Expression) {
   const actual: LocType = {
     start: null,
-    end: null
+    end: null,
   };
   const expected: LocType = {
     start: null,
-    end: null
+    end: null,
   };
 
   if (isCallExpression(expression)) {
@@ -47,7 +44,7 @@ export function extractShouldPattern(
             expected.end = expectedEnd ? expectedEnd + 1 : null;
           }
         }
-      }
+      },
     });
   }
 

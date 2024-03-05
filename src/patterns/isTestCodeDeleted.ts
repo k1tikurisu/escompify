@@ -11,7 +11,7 @@ export function isTestCodeDeleted(action: ActionType) {
           foundTestCode = true;
           path.stop();
         }
-      }
+      },
     });
   }
 

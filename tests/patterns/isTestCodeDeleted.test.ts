@@ -1,6 +1,6 @@
 import { generateActions } from '@/gumtree';
-import { isTestCodeDeleted } from '../../src/patterns';
 import { parseWithOptions } from '@/utils';
+import { isTestCodeDeleted } from '../../src/patterns';
 
 describe('isTestCodeDeleted', () => {
   it('should return true for a deleted test suite', async () => {
@@ -11,15 +11,13 @@ describe('isTestCodeDeleted', () => {
       });
     });
     `;
-    const dstCode = ``;
+    const dstCode = '';
 
     const srcAst = parseWithOptions(srcCode);
     const dstAst = parseWithOptions(dstCode);
 
     const actions = await generateActions(srcAst, dstAst);
-    const isTestDeleted = (actions ?? []).some((action) =>
-      isTestCodeDeleted(action)
-    );
+    const isTestDeleted = (actions ?? []).some((action) => isTestCodeDeleted(action));
 
     expect(isTestDeleted).toBe(true);
   });
@@ -47,9 +45,7 @@ describe('isTestCodeDeleted', () => {
     const dstAst = parseWithOptions(dstCode);
 
     const actions = await generateActions(srcAst, dstAst);
-    const isTestDeleted = (actions ?? []).some((action) =>
-      isTestCodeDeleted(action)
-    );
+    const isTestDeleted = (actions ?? []).some((action) => isTestCodeDeleted(action));
 
     expect(isTestDeleted).toBe(true);
   });
@@ -74,9 +70,7 @@ describe('isTestCodeDeleted', () => {
     const dstAst = parseWithOptions(dstCode);
 
     const actions = await generateActions(srcAst, dstAst);
-    const isTestDeleted = (actions ?? []).some((action) =>
-      isTestCodeDeleted(action)
-    );
+    const isTestDeleted = (actions ?? []).some((action) => isTestCodeDeleted(action));
 
     expect(isTestDeleted).toBe(false);
   });

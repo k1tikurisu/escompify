@@ -7,17 +7,14 @@ async function main() {
   const result = await handler(argv);
 
   const hasPotentialBreaking =
-    result.isInserted ||
-    result.isDeleted ||
-    result.isExpectChanged ||
-    result.isAssertionInserted;
+    result.isInserted || result.isDeleted || result.isExpectChanged || result.isAssertionInserted;
 
   const output = {
     hasPotentialBreaking,
     isInserted: result.isInserted,
     isDeleted: result.isDeleted,
     isExpectChanged: result.isExpectChanged,
-    isAssertionInserted: result.isAssertionInserted
+    isAssertionInserted: result.isAssertionInserted,
   };
 
   console.log(JSON.stringify(output));

@@ -5,6 +5,6 @@ import { File } from '@babel/types';
 export function parseWithOptions(code: string): ParseResult<File> {
   return parse(code, {
     sourceType: 'module',
-    plugins: ['estree', 'typescript']
+    plugins: ['estree', 'typescript'],
   });
 }

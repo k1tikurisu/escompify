@@ -1,4 +1,4 @@
-import { runGumTree, getTree } from '@/gumtree';
+import { getTree, runGumTree } from '@/gumtree';
 import { NodePath } from '@babel/traverse';
 import { Node } from '@babel/types';
 
@@ -20,10 +20,7 @@ type ActionDetailsType = {
 
 export async function generateActions(srcAst: Node, dstAst: Node) {
   try {
-    const output = await runGumTree(
-      JSON.stringify(srcAst),
-      JSON.stringify(dstAst)
-    );
+    const output = await runGumTree(JSON.stringify(srcAst), JSON.stringify(dstAst));
     if (!output) throw Error('Error at runGumTree');
 
     if (output.actions.length === 0) return [];
@@ -42,16 +39,12 @@ export async function generateActions(srcAst: Node, dstAst: Node) {
         type: action.action,
         src: {
           ast: srcAst,
-          path: action.action.startsWith('insert')
-            ? null
-            : getTree(srcAst, start, end)
+          path: action.action.startsWith('insert') ? null : getTree(srcAst, start, end),
         },
         dst: {
           ast: dstAst,
-          path: action.action.startsWith('insert')
-            ? getTree(dstAst, start, end)
-            : null
-        }
+          path: action.action.startsWith('insert') ? getTree(dstAst, start, end) : null,
+        },
       };
 
       actions.push(actionWithAst);

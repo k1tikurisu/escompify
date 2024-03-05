@@ -16,20 +16,20 @@ export function cli(argv: string[]) {
         demandOption: true,
         type: 'string',
         normalize: true,
-        alias: 'p'
+        alias: 'p',
       },
       srcHash: {
         describe: 'src hash',
         demandOption: true,
         type: 'string',
-        alias: 's'
+        alias: 's',
       },
       dstHash: {
         describe: 'dst hash',
         demandOption: true,
         type: 'string',
-        alias: 'd'
-      }
+        alias: 'd',
+      },
     })
     .usage('Usage: $0 -p [path] -s [hash] -d [hash]')
     .demandOption(['p', 's', 'd'])

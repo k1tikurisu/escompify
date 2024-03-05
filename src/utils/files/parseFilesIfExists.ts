@@ -31,8 +31,8 @@ export function parseFilesIfExists(filePaths: string[]) {
       end: length,
       sourceType: 'module',
       interpreter: null,
-      body: astBodies
-    }
+      body: astBodies,
+    },
   } as unknown as Node;
 
   return { ast: mergedAst, code: mergedCode };

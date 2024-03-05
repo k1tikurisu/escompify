@@ -1,10 +1,10 @@
 import { NodePath } from '@babel/traverse';
 import {
   Node,
-  isFunctionExpression,
   isArrowFunctionExpression,
+  isCallExpression,
+  isFunctionExpression,
   isIdentifier,
-  isCallExpression
 } from '@babel/types';
 
 export function isTestCode(path: NodePath<Node>) {
@@ -12,7 +12,7 @@ export function isTestCode(path: NodePath<Node>) {
 
   const {
     callee,
-    arguments: [arg1, arg2]
+    arguments: [arg1, arg2],
   } = path.node;
 
   if (!isIdentifier(callee)) return false;

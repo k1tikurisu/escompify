@@ -1,4 +1,4 @@
-import { exec, ExecOptions } from 'child_process';
+import { ExecOptions, exec } from 'child_process';
 
 export async function run(command: string, options: ExecOptions = {}) {
   return new Promise<string>((resolve, reject) => {

@@ -1,15 +1,15 @@
 import { MyArgs } from '@/cli';
-import simpleGit from 'simple-git';
-import { parseFilesIfExists, getChangedTestFilePaths } from '@/utils/files';
-import { generateActions } from './gumtree';
 import {
   findActualAndExpects,
   findTestCodeRange,
   isAssertionInserted,
   isExpectedChanged,
   isTestCodeDeleted,
-  isTestInsertedWithinTest
+  isTestInsertedWithinTest,
 } from '@/patterns';
+import { getChangedTestFilePaths, parseFilesIfExists } from '@/utils/files';
+import simpleGit from 'simple-git';
+import { generateActions } from './gumtree';
 
 export async function handler(argv: MyArgs) {
   const { path, srcHash, dstHash } = argv;
@@ -23,7 +23,7 @@ export async function handler(argv: MyArgs) {
     isDeleted: false,
     isInserted: false,
     isExpectChanged: false,
-    isAssertionInserted: false
+    isAssertionInserted: false,
   };
 
   for (const action of data.actions) {
@@ -50,11 +50,7 @@ export async function handler(argv: MyArgs) {
 }
 
 async function getGumTreeData(path: string, srcHash: string, dstHash: string) {
-  const { srcCode, dstCode, srcAst, dstAst } = await createSrcAndDstCode(
-    path,
-    srcHash,
-    dstHash
-  );
+  const { srcCode, dstCode, srcAst, dstAst } = await createSrcAndDstCode(path, srcHash, dstHash);
 
   const actions = await generateActions(srcAst, dstAst);
 
@@ -66,17 +62,13 @@ async function getGumTreeData(path: string, srcHash: string, dstHash: string) {
     dstHash,
     actions: actions ?? [],
     srcAst,
-    dstAst
+    dstAst,
   };
 
   return gumTreeData;
 }
 
-async function createSrcAndDstCode(
-  path: string,
-  srcHash: string,
-  dstHash: string
-) {
+async function createSrcAndDstCode(path: string, srcHash: string, dstHash: string) {
   const git = simpleGit(path);
 
   const currentBranchName = (await git.branch(['--contains'])).current;
@@ -84,22 +76,16 @@ async function createSrcAndDstCode(
   try {
     await git.checkout(['-f', currentBranchName]);
 
-    const changedTestFilePaths = await getChangedTestFilePaths(
-      path,
-      srcHash,
-      dstHash
-    );
+    const changedTestFilePaths = await getChangedTestFilePaths(path, srcHash, dstHash);
 
     await git.checkout(['-f', dstHash]);
-    const { ast: dstAst, code: dstCode } =
-      parseFilesIfExists(changedTestFilePaths);
+    const { ast: dstAst, code: dstCode } = parseFilesIfExists(changedTestFilePaths);
 
     // clean up
     await git.checkout(['-f', currentBranchName]);
 
     await git.checkout(['-f', srcHash]);
-    const { ast: srcAst, code: srcCode } =
-      parseFilesIfExists(changedTestFilePaths);
+    const { ast: srcAst, code: srcCode } = parseFilesIfExists(changedTestFilePaths);
 
     return { srcCode, dstCode, srcAst, dstAst };
   } finally {

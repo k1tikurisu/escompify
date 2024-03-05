@@ -33,7 +33,7 @@ export function extractActualAndExpected(
 
 function isExtracted({
   actual,
-  expected
+  expected,
 }: {
   actual: LocType | null;
   expected: LocType | null;

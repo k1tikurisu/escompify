@@ -12,7 +12,7 @@ async function main() {
     fp: 0,
     fn: 0,
     errors: 0,
-    result: []
+    result: [],
   };
 
   for (let i = 0; i < datasets.length; i++) {
@@ -24,7 +24,7 @@ async function main() {
       srcHash: dataset.prev.hash,
       dstHash: dataset.updated.hash,
       isBreaking: dataset.state === 'failure',
-      matsudaPrediction: dataset.isBreaking
+      matsudaPrediction: dataset.isBreaking,
     };
 
     try {
@@ -37,14 +37,14 @@ async function main() {
       result.result[i] = {
         ...result.result[i],
         stats: output,
-        error: false
+        error: false,
       };
     } catch (e) {
       result.errors++;
       result.result[i] = {
         ...result.result[i],
         stats: null,
-        error: true
+        error: true,
       };
       console.error(e);
     }

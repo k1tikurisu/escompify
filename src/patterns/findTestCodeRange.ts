@@ -1,6 +1,6 @@
-import { Node } from '@babel/types';
-import traverse from '@babel/traverse';
 import { isTestCode } from '@/patterns';
+import traverse from '@babel/traverse';
+import { Node } from '@babel/types';
 
 export type TestCodeRangeType = {
   start: number;
@@ -15,7 +15,7 @@ export function findTestCodeRange(node: Node) {
       if (isTestCode(path) && path.node.start && path.node.end) {
         testCodeRanges.push({ start: path.node.start, end: path.node.end });
       }
-    }
+    },
   });
 
   return testCodeRanges;

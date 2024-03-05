@@ -26,7 +26,7 @@ export function isTestInsertedWithinTest(
           // テストスイートごと追加された場合、中のテストケースは探索しない
           path.stop();
         }
-      }
+      },
     });
   }
 

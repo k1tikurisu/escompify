@@ -12,17 +12,17 @@ async function main() {
         tp: 0,
         tn: 0,
         fp: 0,
-        fn: 0
+        fn: 0,
       },
       matsuda: {
         tp: 0,
         tn: 0,
         fp: 0,
-        fn: 0
-      }
+        fn: 0,
+      },
     },
     errors: 0,
-    result: []
+    result: [],
   };
 
   for (let i = 0; i < datasets.length; i++) {
@@ -34,7 +34,7 @@ async function main() {
       srcHash: dataset.prev.hash,
       dstHash: dataset.updated.hash,
       isBreaking: dataset.state === 'failure',
-      matsudaPrediction: dataset.isBreaking
+      matsudaPrediction: dataset.isBreaking,
     };
 
     console.log(
@@ -48,7 +48,7 @@ async function main() {
         result.result[i] = {
           ...result.result[i],
           stats: null,
-          error: 'no-repo'
+          error: 'no-repo',
         };
         continue;
       }
@@ -62,14 +62,14 @@ async function main() {
       result.result[i] = {
         ...result.result[i],
         stats: output,
-        error: null
+        error: null,
       };
     } catch (e) {
       result.errors++;
       result.result[i] = {
         ...result.result[i],
         stats: null,
-        error: 'unexpected-error'
+        error: 'unexpected-error',
       };
       console.error(e);
     } finally {
@@ -98,13 +98,13 @@ function confusionMatrix({ result }: ThesisResult) {
     tp: 0,
     fp: 0,
     tn: 0,
-    fn: 0
+    fn: 0,
   };
   const matsuda = {
     tp: 0,
     fp: 0,
     tn: 0,
-    fn: 0
+    fn: 0,
   };
 
   for (const { matsudaPrediction, isBreaking, stats } of result) {
@@ -143,7 +143,7 @@ function confusionMatrix({ result }: ThesisResult) {
 
   return {
     thesis,
-    matsuda
+    matsuda,
   };
 }
 

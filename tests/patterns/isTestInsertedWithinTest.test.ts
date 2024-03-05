@@ -1,9 +1,6 @@
 import { generateActions } from '@/gumtree';
-import {
-  findTestCodeRange,
-  isTestInsertedWithinTest
-} from '../../src/patterns';
 import { parseWithOptions } from '@/utils';
+import { findTestCodeRange, isTestInsertedWithinTest } from '../../src/patterns';
 
 describe('isTestCodeInserted', () => {
   it('should return true when inserting test code into test code', async () => {
@@ -36,7 +33,7 @@ describe('isTestCodeInserted', () => {
   });
 
   it('should return false for a test code inserted', async () => {
-    const srcCode = ``;
+    const srcCode = '';
     const dstCode = `
     describe('sum', function () {
       it('adds 1 + 2 to equal 3', function () {

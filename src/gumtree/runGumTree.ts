@@ -1,7 +1,7 @@
-import path from 'path';
-import os from 'os';
-import fs from 'fs';
 import { randomUUID } from 'crypto';
+import fs from 'fs';
+import os from 'os';
+import path from 'path';
 import { run } from '@/utils';
 
 export type GumTreeResponseType = {
@@ -35,8 +35,8 @@ export async function runGumTree(
   try {
     fs.mkdirSync(tempDir);
 
-    const srcPath = path.join(tempDir, `src.js`);
-    const dstPath = path.join(tempDir, `dst.js`);
+    const srcPath = path.join(tempDir, 'src.js');
+    const dstPath = path.join(tempDir, 'dst.js');
     fs.writeFileSync(srcPath, srcAst, 'utf-8');
     fs.writeFileSync(dstPath, dstAst, 'utf-8');
 

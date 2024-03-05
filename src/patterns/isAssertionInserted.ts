@@ -12,16 +12,11 @@ export function isAssertionInserted(action: ActionType) {
         if (isIdentifier(callee)) {
           const name = callee.name;
 
-          if (
-            name === 'expect' ||
-            name === 'assert' ||
-            name === 'test' ||
-            name === 't'
-          ) {
+          if (name === 'expect' || name === 'assert' || name === 'test' || name === 't') {
             foundAssertion = true;
           }
         }
-      }
+      },
     });
   }
 

@@ -1,10 +1,5 @@
 import { NodePath } from '@babel/traverse';
-import {
-  Expression,
-  ExpressionStatement,
-  isCallExpression,
-  isIdentifier
-} from '@babel/types';
+import { Expression, ExpressionStatement, isCallExpression, isIdentifier } from '@babel/types';
 
 type LocType = {
   start: number | null;
@@ -16,17 +11,14 @@ type LocType = {
  * expect(sum(1, 2)).to.be.a('number').equal(3); // expect関数にメソッドチェーンで振る舞いを記述する
  * expect(sum(1, 2), 'to be', 3);  // expectの引数に振る舞いを記述する
  */
-export function extractExpectPattern(
-  path: NodePath<ExpressionStatement>,
-  expression: Expression
-) {
+export function extractExpectPattern(path: NodePath<ExpressionStatement>, expression: Expression) {
   const actual: LocType = {
     start: null,
-    end: null
+    end: null,
   };
   const expected: LocType = {
     start: null,
-    end: null
+    end: null,
   };
 
   if (isCallExpression(expression)) {
@@ -51,13 +43,11 @@ export function extractExpectPattern(
             return;
 
           actual.start = memberObject.arguments[0]?.start ?? null;
-          actual.end =
-            memberObject.arguments[memberObject.arguments.length - 1]?.end ??
-            null;
+          actual.end = memberObject.arguments[memberObject.arguments.length - 1]?.end ?? null;
           expected.start = actual.end && actual.end + 1;
           const expectedEnd = args.at(-1)?.end;
           expected.end = expectedEnd ? expectedEnd + 1 : null;
-        }
+        },
       });
     }
   }

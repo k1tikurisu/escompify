@@ -5,6 +5,7 @@
     "ms-playwright.playwright",
     "streetsidesoftware.code-spell-checker",
     "hediet.vscode-drawio",
-    "orta.vscode-jest"
+    "orta.vscode-jest",
+    "biomejs.biome"
   ]
 }

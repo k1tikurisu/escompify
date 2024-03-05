@@ -1,11 +1,7 @@
-import { Node } from '@babel/types';
 import traverse, { NodePath } from '@babel/traverse';
+import { Node } from '@babel/types';
 
-export function getTree(
-  ast: Node,
-  start: number,
-  end: number
-): NodePath | undefined {
+export function getTree(ast: Node, start: number, end: number): NodePath | undefined {
   let tree: NodePath | undefined;
 
   traverse(ast, {
@@ -16,7 +12,7 @@ export function getTree(
         tree = path;
         path.stop();
       }
-    }
+    },
   });
 
   return tree;
