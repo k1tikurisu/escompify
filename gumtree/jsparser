@@ -20,7 +20,7 @@ const generateXmlFromAst = (ast) => {
     },
     exit: function () {
       xml.endElement();
-    }
+    },
   });
 
   xml.endDocument();

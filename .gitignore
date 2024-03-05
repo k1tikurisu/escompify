@@ -12,7 +12,8 @@
 
 node_modules
 *.log
-datasets
+datasets/*
+!datasets/Dockerfile
 .env
 
 diffs
@@ -24,4 +25,3 @@ db/**/*.db
 __generated__
 
 tmp
-repos

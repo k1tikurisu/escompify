@@ -11,43 +11,57 @@
 ## ディレクトリ構成
 
 ```sh
-├── dataset # Mujahidらのデータセットを置く
 ├── outputs # 各分析結果
 ├── runners # 分析を実行するプログラム
 ├── scripts # 分析の準備と集計に必要なプログラム
 └── src # 後方互換性を予測するプログラム
 ```
 
-## output 以下のファイル
+## outputs 以下のファイル
 
-- analysis_result ... 分析対象の 500 ライブラリのテスト結果
-- repository_versions 　... 分析対象の 500 ライブラリの各バージョンとコミットハッシュ値
-- test_result ... 500 ライブラリに対応するクライアントのテスト実行結果
-- proposal_result ... 提案手法の適用結果とテスト結果を集計した最終的なデータ
+- thesis_result ... 提案手法の適用結果を集計した最終的なデータ
+- thesis_result_with_mejor ... メジャーバージョンによる提案手法の精度の推移
+- thesis_result_with_coverage ... テストカバレッジによる提案手法の精度の推移
 
-<details>
-<summary>データの再現手順</summary>
+## 再現手順
 
-### Docker イメージ作成とデータセット配置
+研究結果は`outputs`配下に出力されています。再現手順を示しますが、ライブラリが非公開や削除されることによってデータセットが変わると出力結果が変わる場合があります。その場合は、サーバー上にあるライブラリを使用することで同じ結果を得ることが可能です。
 
-```console
-$ git clone https://github.com/mzdkzk/survey.git
-$ docker-compose build
-$ mv path/to/dataset ./dataset
+### 環境構築
+
+DockerとNode.jsが必要です。提案手法のプログラムの実行にNode.js、GumTreeの実行、分析対象ライブラリの保存にDockerを使用します。
+
+```sh
+$ docker -v
+Docker version 25.0.3, build 4debf41
+$ node -v
+v20.11.1
+
+# 依存ライブラリをインストール
+$ yarn install
+
+# GumTreeをビルド
+$ docker build -t k1tikurisu/gumtree --progress=plain ./gumtree
+# GumTreeコマンドが利用できることを確認
+$ docker run --rm -it k1tikurisu/gumtree gumtree --help
+Available Options:
+..
+
+# データセットを配置（datasets配下に松田研究の結果が配置されます）
+$ ./scripts/clone_datasets.sh
+
+# 分析対象ライブラリをDockerコンテナ上にクローン
+$ docker build -t k1tikurisu/analysis-libraries --progress=plain ./datasets
+# クローンされたリポジトリを参照できることを確認
+$ docker run --rm k1tikurisu/analysis-libraries ls -l repos
+drwxr-xr-x 1 root root   12 Mar  5 05:42 MikeMcl
+..
 ```
 
-### 手順 1
+### 研究結果の出力
 
-```console
-$ docker-compose run --rm main yarn docker:analysis --build-arg repos=リポジトリ数
-$ docker-compose run --rm main yarn analysis -c 個数 -p コンテナ数
-```
-
-`output/repository_versions`、`output/analysis_result`が生成されます。
-
-### 手順 2
-
-```console
+```sh
+$
 # 1. の結果から runner-experiment/input.json を生成
 $ docker-compose run --rm main ./scripts/loadAnalysisResult.sh
 $ docker-compose run --rm main ./scripts/inputExperiment.sh
@@ -72,9 +86,3 @@ $ docker-compose run --rm main yarn proposal -c 個数 -p コンテナ数
 ```
 
 `output/proposal_result`が生成されます。
-
-</details>
-
-## データセット
-
-Mujahid, Suhaib, Abdalkareem, Rabe, Shihab, Emad, & McIntosh, Shane. (2019). MSR - Using Others' Tests to Avoid Breaking Updates [Data set]. Zenodo. http://doi.org/10.5281/zenodo.2549129

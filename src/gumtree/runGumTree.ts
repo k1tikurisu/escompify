@@ -40,7 +40,9 @@ export async function runGumTree(
     fs.writeFileSync(srcPath, srcAst, 'utf-8');
     fs.writeFileSync(dstPath, dstAst, 'utf-8');
 
-    const output = await run(`gumtree textdiff -f JSON ${srcPath} ${dstPath}`);
+    const output = await run(
+      `docker run --rm k1tikurisu/gumtree gumtree textdiff -f JSON ${srcPath} ${dstPath}`
+    );
 
     return JSON.parse(output);
   } catch (error) {

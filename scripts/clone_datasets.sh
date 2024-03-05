@@ -2,7 +2,7 @@
 
 set -Ceu
 
-source /works/scripts/utils/progress_indicator.sh
+source ./scripts/utils/progress_indicator.sh
 
 STEPS=(
   'clone datasets'
@@ -12,7 +12,7 @@ STEPS=(
 
 CMDS=(
   'git clone https://github.com/Wakayama-SocSEL/Matsuda.git /tmp/Matsuda'
-  'cp -rp /tmp/Matsuda/output/ /works/datasets/'
+  'cp -rp /tmp/Matsuda/output/ ./datasets/'
   'rm -rf /tmp/Matsuda'
 )
 
