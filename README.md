@@ -29,7 +29,7 @@
 
 ### 環境構築
 
-DockerとNode.jsが必要です。提案手法のプログラムの実行にNode.js、GumTreeの実行、分析対象ライブラリの保存にDockerを使用します。
+DockerとNode.jsが必要です。提案手法のプログラムの実行にNode.js、GumTreeの実行にDockerを使用します。
 
 ```sh
 $ docker -v
