@@ -50,8 +50,8 @@ Available Options:
 # データセットを配置（datasets配下に松田研究の結果が配置されます）
 $ ./scripts/clone_datasets.sh
 
-# 分析対象ライブラリをDockerコンテナ上にクローン
-$ docker build -t k1tikurisu/analysis-libraries --progress=plain ./datasets
+# 分析対象ライブラリをクローン（repos配下にクローンされます）
+$ ./scripts/clone_repos.sh
 # クローンされたリポジトリを参照できることを確認
 $ docker run --rm k1tikurisu/analysis-libraries ls -l repos
 drwxr-xr-x 1 root root   12 Mar  5 05:42 MikeMcl
@@ -60,29 +60,13 @@ drwxr-xr-x 1 root root   12 Mar  5 05:42 MikeMcl
 
 ### 研究結果の出力
 
+以下のコマンドで各研究結果をJSON形式で出力します。
+
 ```sh
-$
-# 1. の結果から runner-experiment/input.json を生成
-$ docker-compose run --rm main ./scripts/loadAnalysisResult.sh
-$ docker-compose run --rm main ./scripts/inputExperiment.sh
-
-# 実行
-$ docker-compose run --rm main yarn docker:experiment --build-arg repos=リポジトリ数
-$ docker-compose run --rm -e HOST_PWD=$PWD main yarn experiment -c 個数 -p コンテナ数
+# outputs/thesis_result.jsonを生成する
+$ ./runners/thesis/run.sh
+# outputs/thesis_result_with_mejorを生成する
+$ ./runners/thesis/mejor.sh
+# outputs/thesis_result_with_coverageを生成する
+$ ./runners/thesis/coverage.json
 ```
-
-`output/test_result`が生成されます。
-
-### 手順 3
-
-```console
-# 2. の結果から runner-proposal/input.json を生成
-$ docker-compose run --rm main ./scripts/loadExperimentResult.sh
-$ docker-compose run --rm main ./scripts/inputProposal.sh
-
-# 実行
-$ docker-compose run --rm main yarn docker:proposal --build-arg repos=リポジトリ数
-$ docker-compose run --rm main yarn proposal -c 個数 -p コンテナ数
-```
-
-`output/proposal_result`が生成されます。

@@ -25,3 +25,5 @@ db/**/*.db
 __generated__
 
 tmp
+
+repos

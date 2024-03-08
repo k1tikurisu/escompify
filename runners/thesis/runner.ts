@@ -3,7 +3,7 @@ import { run } from '../../src/utils/run';
 
 async function main() {
   const datasets = readJson<ProposalResult[]>(
-    readFileSync('/works/datasets/proposal_result.json', 'utf-8')
+    readFileSync('./datasets/proposal_result.json', 'utf-8')
   );
 
   const result: ThesisResult = {
@@ -30,7 +30,7 @@ async function main() {
 
     result.result[i] = {
       ...result.result[i],
-      path: `/works/repos/${dataset.nameWithOwner}`,
+      path: `./repos/${dataset.nameWithOwner}`,
       srcHash: dataset.prev.hash,
       dstHash: dataset.updated.hash,
       isBreaking: dataset.state === 'failure',
@@ -55,7 +55,7 @@ async function main() {
 
       const output = readJson<EscompifyType>(
         await run(
-          `escompify -p /works/repos/${dataset.nameWithOwner} -s ${dataset.prev.hash} -d ${dataset.updated.hash}`
+          `./bin/escompify -p ./repos/${dataset.nameWithOwner} -s ${dataset.prev.hash} -d ${dataset.updated.hash}`
         )
       );
 
@@ -81,7 +81,7 @@ async function main() {
 
   result.matrix = confusionMatrix(result);
 
-  writeFileSync('/works/outputs/thesis_result.json', JSON.stringify(result));
+  writeFileSync('./outputs/sample.json', JSON.stringify(result));
 }
 
 main().catch((e) => {
