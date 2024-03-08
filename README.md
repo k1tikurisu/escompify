@@ -67,5 +67,5 @@ $ ./runners/thesis/run.sh
 # outputs/thesis_result_with_mejorを生成する
 $ ./runners/thesis/mejor.sh
 # outputs/thesis_result_with_coverageを生成する
-$ ./runners/thesis/coverage.json
+$ ./runners/thesis/coverage.sh
 ```
