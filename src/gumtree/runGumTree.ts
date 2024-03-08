@@ -41,12 +41,10 @@ export async function runGumTree(
     fs.writeFileSync(dstPath, dstAst, 'utf-8');
 
     const output = await run(
-      `docker run --rm k1tikurisu/gumtree gumtree textdiff -f JSON ${srcPath} ${dstPath}`
+      `docker run --rm -v ${tempDir}:/tmp/${id} k1tikurisu/gumtree gumtree textdiff -f JSON /tmp/${id}/src.js /tmp/${id}/dst.js`
     );
 
     return JSON.parse(output);
-  } catch (error) {
-    console.error('Error at runGumTree: ', error);
   } finally {
     if (fs.existsSync(tempDir)) {
       fs.rmSync(tempDir, { recursive: true, force: true });

@@ -17,7 +17,6 @@ describe('isTestCodeDeleted', () => {
     const dstAst = parseWithOptions(dstCode);
 
     const actions = await generateActions(srcAst, dstAst);
-    console.log(actions);
 
     const isTestDeleted = (actions ?? []).some((action) => isTestCodeDeleted(action));
 
