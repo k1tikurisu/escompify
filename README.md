@@ -38,7 +38,7 @@ $ node -v
 v20.11.1
 
 # 依存ライブラリをインストール
-$ yarn install
+$ corepack enable && yarn install
 
 # GumTreeをビルド
 $ docker build -t k1tikurisu/gumtree --progress=plain ./gumtree
