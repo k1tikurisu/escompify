@@ -53,8 +53,7 @@ $ ./scripts/clone_datasets.sh
 # 分析対象ライブラリをクローン（repos配下にクローンされます）
 $ ./scripts/clone_repos.sh
 # クローンされたリポジトリを参照できることを確認
-$ docker run --rm k1tikurisu/analysis-libraries ls -l repos
-drwxr-xr-x 1 root root   12 Mar  5 05:42 MikeMcl
+$ ls -l repos
 ..
 ```
 
