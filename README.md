@@ -58,7 +58,7 @@ $ ls -l repos
 
 ### 研究結果の出力
 
-以下のコマンドで各研究結果をJSON形式で出力します。
+以下のコマンドで各研究結果をJSON/CSV形式で出力します。
 
 ```sh
 # outputs/thesis_result.jsonを生成する
@@ -66,3 +66,13 @@ $ ./runners/thesis/run.sh
 # outputs/thesis_result_with_matsudaを生成する
 $ ./runners/thesis/run_with_matsuda.sh
 ```
+
+#### `thesis_result_with_matsuda.csv`の各見出し
+
+- isBreaking: 実際の後方互換性有無
+- matsudaPrediction: 松田研究での判定結果
+- maekawa_hasPotentialBreaking: 前川研究での判定結果
+- maekawa_isInserted": テスト追加有無（それぞれ、定義は論文参照）
+- maekawa_isDeleted": テスト削除有無
+- maekawa_isExpectChanged": 期待値の変更有無
+- maekawa_isAssertionInserted": アサーション追加有無
