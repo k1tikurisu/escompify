@@ -20,8 +20,7 @@
 ## outputs 以下のファイル
 
 - thesis_result ... 提案手法の適用結果を集計した最終的なデータ
-- thesis_result_with_mejor ... メジャーバージョンによる提案手法の精度の推移
-- thesis_result_with_coverage ... テストカバレッジによる提案手法の精度の推移
+- thesis_result_with_matsuda ... 提案手法と松田手法の結果を合わせたデータ
 
 ## 再現手順
 
@@ -64,8 +63,6 @@ $ ls -l repos
 ```sh
 # outputs/thesis_result.jsonを生成する
 $ ./runners/thesis/run.sh
-# outputs/thesis_result_with_mejorを生成する
-$ ./runners/thesis/mejor.sh
-# outputs/thesis_result_with_coverageを生成する
-$ ./runners/thesis/coverage.sh
+# outputs/thesis_result_with_matsudaを生成する
+$ ./runners/thesis/run_with_matsuda.sh
 ```
